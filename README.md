@@ -29,11 +29,15 @@
 | Camera              | 2 MP, 720 x 480 pixels |
 | Dimensions          | 297.3 x 224.6 x 17.5 mm (11.70 x 8.84 x 0.69 in), 1.4 kg |
 | Connectors          | 1 x USB Type-C 3.2 Gen2x1<br/>2 x USB Type-A 3.2 Gen1<br/>1 x DC Charger<br/>1 x MicroSD Slot<br/>1 x TRS 3.5 mm<br/>1 x Mini-HDMI |
-| Input               | 78 Keys Built-in Keyboard<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
+| Input               | 78 Keys Built-in Keyboard (Fn)<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
 
 ## EFI Specifications
 
-> **! Ensure you have filled in the correct serial number before booting**
+> **! Ensure you have filled in the correct serial number before booting!**
+
+> Nic (Wi-Fi/Bluetooth) kexts are not enabled by default, enable the manually depending on your hardware and OS
+
+> **! Do NOT try to load any Bluetooth injector in macOS Monterey!**
 
 | Specifications  | Details | Remarks |
 | --------------- | ------- | ------- |
@@ -51,7 +55,7 @@
 | Full Integrated Graphics | ✅ | `WhateverGreen.kext` | |
 | Video Accleration (QE/CI) | ✅ | `WhateverGreen.kext` | |
 | HiDPI | ✅ | | [Script](https://github.com/xzhih/one-key-hidpi) required |
-| Brightness Adjustments | ✅ | `WhateverGreen.kext`<br/>`AppleBacklightSmoother.kext` | |
+| Brightness Adjustments | ✅ | `SSDT-PNLF-CFL`<br/>`WhateverGreen.kext`<br/>`AppleBacklightSmoother.kext` | |
 | Sleep | ✅ | `HibernationFixup.kext` | |
 | Hibernation | ✅ | `HibernationFixup.kext` | |
 | NVMe Drive Battery Management | ✅ | `NVMeFix.kext` | |
@@ -61,25 +65,30 @@
 | Built-in TouchPad | ✅ | `VoodooI2C*.kext` | All gesture avaliable |
 | Built-in Keyboard | ✅ | `VoodooPS2*.kext` | |
 | Fn Keys | ✅ | `VoodooPS2*.kext` | |
+| Input over Bluetooth | ✅ | | Bluetooth-dependent |
 | Internal Mic Audio Recording | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
 | Internal Speakers Audio Playback | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
 | Automatic Headphone Output Switching | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
 | Audio Playback through TSR | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
+| Audio Playback through Bluetooth | ✅ | | Bluetooth-dependent |
 | MicroSD Slot | ✅ | `USBMap.kext` | |
 | USB Type-A 3.2 Gen1 Ports | ✅ | `USBMap.kext` | |
-| USB Type-C 3.2 Gen2x1 Port | ✅ | `USBMap.kext` | Hotplug fully supported<br/>Can't use Thunderbolt because retimer chip lacks |
+| USB Type-C 3.2 Gen2x1 Port | ✅ | `USBMap.kext` | Hotplug fully supported |
 | Ethernet | ✅ | `NullEthernet.kext` | Spoofing system only, no networking |
-| WiFi | ⚠️ | | You need to install kexts manually:<br/>- Broadcom: [AirPort](https://github.com/acidanthera/AirportBrcmFixup)<br/>- Intel: [AirPort](https://github.com/OpenIntelWireless/itlwm) |
-| Bluetooth | ⚠️ | `BlueToolFixup.kext` | - Broadcom: [Bluetooth](https://github.com/acidanthera/BrcmPatchRAM)<br/>- Intel: [Bluetooth](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)<br/>Do NOT enable any Bluetooth injector in Monterey! |
+| WiFi (Intel) | ⚠️ | `AirportItlwm-*.kext` | WPA3 not working properly |
+| WiFi (Broadcom) | ✅ | `AirportBrcmFixup.kext`<br/>`AirportBrcm*_Injector.kext` | |
+| Bluetooth (Intel) | ⚠️ | `BlueToolFixup.kext`<br/>`IntelBluetoothFirmware.kext`<br/>`IntelBluetoothInjector.kext` | AirDrop not working properly |
+| Bluetooth (Broadcom) | ✅ | `BlueToolFixup.kext`<br/>`BrcmPatchRAM3.kext`<br/>`BrcmFirmwareData.kext`<br/>`BrcmBluetoothInjector.kext` | |
 
 ## Not working
 
 | Feature | Status | Dependency | Remarks |
 | ------- | ------ | ---------- | ------- |
 | Fingerprint Sensor | ❌ | `NoTouchID.kext` | TouchID is not supported in Hackintosh |
-| Type-C Video Output | ❌ | | New IGPU architecture outputs video through Thunderbolt protocol. |
-| Mini-HDMI Port | ❌ | | `[IGFB][LOG  ][HOT_PLUG  ] Returning as HPD is low` |
-| Realtek RTL8821CE | ❌ | | Realtek nic will never be driven.<br/>Suggest to replace it with:<br/>- Broadcom `BCM943602`/`BCM94350ZAE`/`BCM94360Z3`/`BCM94360Z4`<br/>- Intel `AX200`/`AX201`/`AX210`/`AX211`/`AX411` |
+| Type-C Thunderbolt | ❌ | Hardware | Thunderbolt retimer chip lacks |
+| Type-C Video Output | ❌ | Thunderbolt | New IGPU architecture outputs video through Thunderbolt |
+| Mini-HDMI Port | ❌ | | `[IGFB][LOG][HOT_PLUG] Returning as HPD is low` |
+| Realtek RTL8821CE | ❌ | | Realtek nic will never be driven<br/>Suggest to replace it with:<br/>- Broadcom `BCM943602`/`BCM94350ZAE`/`BCM94360Z3`/`BCM94360Z4`<br/>- Intel `AX200`/`AX201`/`AX210`/`AX211`/`AX411` |
 
 ## BIOS Configuration
 
@@ -132,8 +141,9 @@ Authored and maintained by MlgmXyysd with help from friends in the credits [list
 > In no particular order
 - [Apple](https://www.apple.com/) for macOS
 - [Acidanthera](https://github.com/acidanthera/) for OpenCore & kexts
-- [RehabMan](https://github.com/rehabman/) for kexts
 - [VoodooI2C](https://github.com/VoodooI2C/) for kexts
+- [OpenIntelWireless](https://github.com/OpenIntelWireless/itlwm) for kexts
+- [RehabMan](https://github.com/rehabman/) for kexts
 - [IsaacChen](https://github.com/TingyiChen/) for guides & USB Mapping
 - [Sukka](https://github.com/SukkaW/) for guides & readme template
 - [daliansky](https://github.com/daliansky/) for guides
