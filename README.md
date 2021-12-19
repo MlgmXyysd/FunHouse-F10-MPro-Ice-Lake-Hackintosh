@@ -1,8 +1,8 @@
 <h1 align="center">FunHouse F10 MPro (Ice Lake) Hackintosh</h1>
-<h3 align="center">Pre-built OpenCore EFI</h3>
+<h3 align="center">Pre-built out-of-the-box OpenCore EFI</h3>
 <br>
 
-> Theoretically, EFI can be used for FunHouse F10 MPro+ (Ice Lake) Laptop, but without any tests. If someone has tested it, please inform the results in Issues. :)
+> Theoretically, EFI can be used for FunHouse F10 MPro+ (Ice Lake) Laptop, but without any tests. If someone has tested it, please inform the results in Issues :)
 
 ## Tested on
 - Monterey 12.1 `21C52`
@@ -14,22 +14,22 @@
 ## Device Specifications (Original)
 
 | Specifications      | Details |
-| ------------------- | ------- |
-| Computer Model      | FunHouse F10 MPro |
-| CPU                 | Intel Core i3-1005G1 Mobile `Ice Lake ULT` `FCBGA1526` |
+| ------------------: | :------ |
+| Computer Model | FunHouse F10 MPro |
+| CPU | Intel Core i3-1005G1 Mobile `Ice Lake ULT` `FCBGA1526` |
 | Integrated Graphics | Intel UHD Graphics GT1 `Ice Lake` |
-| Memory              | 8 GB / 16 GB `LPDDR4X @ 3200Mhz` |
-| Storage             | 256 GB `NGFF` `SATA` |
-| Screen              | BOE NE135FBM-N41, 13.5 in, 2256 x 1504 pixels, 3:2 ratio, 60 Hz `IPS-LCD` |
-| Audio               | Realtek USB Audio |
-| Nic                 | Realtek RTL8821CE<br/>Wi-Fi `5` `IEEE 802.11 a/g/b/n/ac` `2.4 GHz` `5 GHz` `433 Mbps`<br/>Bluetooth `4.2` |
-| Ethernet            | No Ethernet |
-| Battery             | 35 Wh (typ) `Li-Po` |
-| Charging            | 19 V ⎓ 3 A |
-| Camera              | 2 MP, 720 x 480 pixels |
-| Dimensions          | 297.3 x 224.6 x 17.5 mm (11.70 x 8.84 x 0.69 in), 1.4 kg |
-| Connectors          | 1 x USB Type-C 3.2 Gen2x1<br/>2 x USB Type-A 3.2 Gen1<br/>1 x DC Charger<br/>1 x MicroSD Slot<br/>1 x TRS 3.5 mm<br/>1 x Mini-HDMI |
-| Input               | 78 Keys Built-in Keyboard (Fn)<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
+| Memory | 8 GB / 16 GB `LPDDR4X @ 3200Mhz` |
+| Storage | 256 GB `NGFF` `SATA` |
+| Screen | BOE NE135FBM-N41, 13.5 in, 2256 x 1504 pixels, 3:2 ratio, 60 Hz `IPS-LCD` |
+| Audio | Realtek USB Audio |
+| Wireless | Realtek RTL8821CE<br/>Wi-Fi `5` `IEEE 802.11 a/g/b/n/ac` `2.4 GHz` `5 GHz` `433 Mbps`<br/>Bluetooth `4.2` |
+| Ethernet | No Ethernet |
+| Battery | 35 Wh (typ) `Li-Po` |
+| Charging | 19 V ⎓ 3 A `DC` `PD` |
+| Camera | 2 MP, 720 x 480 pixels |
+| Dimensions | 297.3 x 224.6 x 17.5 mm (11.70 x 8.84 x 0.69 in), 1.4 kg |
+| Connectors | 1 x USB Type-C 3.2 Gen2x1<br/>2 x USB Type-A 3.2 Gen1<br/>1 x DC Charger<br/>1 x MicroSD Slot<br/>1 x TRS 3.5 mm<br/>1 x Mini-HDMI |
+| Input | 78 Keys Built-in Keyboard (Fn)<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
 
 ## EFI Specifications
 
@@ -40,55 +40,51 @@
 > **! Do NOT try to load any Bluetooth injector in macOS Monterey!**
 
 | Specifications  | Details | Remarks |
-| --------------- | ------- | ------- |
+| --------------: | :-----: | :------ |
 | PlatformID | `0x8A510002` | Intel Iris Plus Graphics |
-| DeviceID   | `0x8A5D` | |
-| SMBIOS     | `MacBookPro16,2` | MacBook Pro 13" 2020 |
-| Chassis    | `Mac-5F9802EFE386AA28` | |
+| DeviceID | `0x8A5D` | |
+| SMBIOS | `MacBookPro16,2` | MacBook Pro 13" 2020 |
+| Chassis | `Mac-5F9802EFE386AA28` | |
 
 ## Working
 
-| Feature | Status | Dependency | Remarks |
-| ------- | ------ | ---------- | ------- |
-| BootLoader | ✅ | `OpenCore` | OpenCore 0.7.6 |
-| NVRAM | ✅ | `SSDT-PMC` | |
-| Full Integrated Graphics | ✅ | `WhateverGreen.kext` | |
-| Video Accleration (QE/CI) | ✅ | `WhateverGreen.kext` | |
-| HiDPI | ✅ | | [Script](https://github.com/xzhih/one-key-hidpi) required |
-| Brightness Adjustments | ✅ | `SSDT-PNLF-CFL`<br/>`WhateverGreen.kext`<br/>`AppleBacklightSmoother.kext` | |
-| Sleep | ✅ | `HibernationFixup.kext` | |
-| Hibernation | ✅ | `HibernationFixup.kext` | |
-| NVMe Drive Battery Management | ✅ | `NVMeFix.kext` | |
-| Battery Percentage Indication | ✅ | | Native supported without patching |
-| CPU Turbo Boost | ✅ | | Native supported without patching |
-| USB Power Properties | ✅ | `SSDT-EC-USBX-LAPTOP`<br/>`ECEnabler.kext` | |
-| Built-in TouchPad | ✅ | `VoodooI2C*.kext` | All gesture avaliable |
-| Built-in Keyboard | ✅ | `VoodooPS2*.kext` | |
-| Fn Keys | ✅ | `VoodooPS2*.kext` | |
-| Input over Bluetooth | ✅ | | Bluetooth-dependent |
-| Internal Mic Audio Recording | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
-| Internal Speakers Audio Playback | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
-| Automatic Headphone Output Switching | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
-| Audio Playback through TSR | ✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
-| Audio Playback through Bluetooth | ✅ | | Bluetooth-dependent |
-| MicroSD Slot | ✅ | `USBMap.kext` | |
-| USB Type-A 3.2 Gen1 Ports | ✅ | `USBMap.kext` | |
-| USB Type-C 3.2 Gen2x1 Port | ✅ | `USBMap.kext` | Hotplug fully supported |
-| Ethernet | ✅ | `NullEthernet.kext` | Spoofing system only, no networking |
-| WiFi (Intel) | ⚠️ | `AirportItlwm-*.kext` | WPA3 not working properly |
-| WiFi (Broadcom) | ✅ | `AirportBrcmFixup.kext`<br/>`AirportBrcm*_Injector.kext` | |
-| Bluetooth (Intel) | ⚠️ | `BlueToolFixup.kext`<br/>`IntelBluetoothFirmware.kext`<br/>`IntelBluetoothInjector.kext` | AirDrop not working properly |
-| Bluetooth (Broadcom) | ✅ | `BlueToolFixup.kext`<br/>`BrcmPatchRAM3.kext`<br/>`BrcmFirmwareData.kext`<br/>`BrcmBluetoothInjector.kext` | |
+| Feature | Status | Sub-objects | Dependency | Remarks |
+| ------: | :----: | :---------- | :--------: | :------ |
+| BootLoader | ✅ | `Boot`✅ | `OpenCore` | OpenCore 0.7.6 |
+| NVRAM | ✅ | | `SSDT-PMC` | |
+| Integrated Graphics | ✅ | `Display`✅<br/>`Accleration QE/CI`✅ | `WhateverGreen.kext` | |
+| HiDPI | ✅ | | | [Script](https://github.com/xzhih/one-key-hidpi) required |
+| Brightness Adjustments | ✅ | | `SSDT-PNLF-CFL`<br/>`WhateverGreen.kext`<br/>`AppleBacklightSmoother.kext` | |
+| Sleep | ✅ | `S3`✅ | `HibernationFixup.kext` | |
+| Hibernation | ✅ | `Mode 3`✅<br/>`Mode 25`✅ | `HibernationFixup.kext` | |
+| NVMe Drive Battery Management | ✅ | | `NVMeFix.kext` | |
+| Battery Indication | ✅ | `Percentage`✅<br/>`Charging`✅ | | Native supported |
+| CPU Turbo Boost | ✅ | | | Native supported |
+| USB Power Properties | ✅ | | `SSDT-EC-USBX-LAPTOP`<br/>`ECEnabler.kext` | |
+| Built-in TouchPad | ✅ | `Track`✅<br/>`Touch`✅<br/>`Guesture`✅ | `VoodooI2C*.kext` | All gesture avaliable |
+| Built-in Keyboard | ✅ | `Normal Keys`✅<br/>`Volume Keys`✅<br/>`Brightness Keys`✅<br/>`Fn Keys`✅ | `VoodooPS2*.kext` | |
+| Input over Bluetooth | ✅ | `Mouse`✅<br/>`Keyboard`✅<br/>`Touchpad`✅ | Bluetooth | |
+| Mic Audio Recording | ✅ | | `AppleALC.kext`<br/>`USBMap.kext` | |
+| Speakers Audio Playback  | ✅ | | `AppleALC.kext`<br/>`USBMap.kext` | |
+| Automatic Headphone Output Switching | ✅ | | `AppleALC.kext`<br/>`USBMap.kext` | |
+| Audio via TSR | ✅ | `Input`✅<br/>`Output`✅ | `AppleALC.kext`<br/>`USBMap.kext` | |
+| Audio over Bluetooth | ✅ | `Input`✅<br/>`Output`✅ | Bluetooth | |
+| MicroSD Slot | ✅ | `Hotplug`✅ | `USBMap.kext` | |
+| USB Type-A Ports | ✅ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`Hub`✅ | `USBMap.kext` | |
+| USB Type-C Port | ⚠️ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`PD Charging`✅<br/>`Hub`✅<br/>`Hotplug`✅<br/>`Display`❌<br/>`Thunderbolt`❌ | `USBMap.kext` | Hotplug fully supported<br/>GT1 iGPU outputs via Thunderbolt, but Thunderbolt hardware (Retimer) lacks |
+| Ethernet | ✅ | | `NullEthernet.kext` | Spoofing system only, no networking |
+| WiFi (Intel) | ⚠️ | `WPA3`⚠️ | `AirportItlwm-*.kext` | WPA3 will have a very slow speed |
+| WiFi (Broadcom) | ✅ | `WPA3`✅ | `AirportBrcmFixup.kext`<br/>`AirportBrcm*_Injector.kext` | |
+| Bluetooth (Intel) | ⚠️ | `Bluetooth`✅<br/>`AirDrop(Sending)`❌<br/>`AirDrop(Receiving)`❌ | `BlueToolFixup.kext`<br/>`IntelBluetoothFirmware.kext`<br/>`IntelBluetoothInjector.kext` | |
+| Bluetooth (Broadcom) | ⚠️ | `Bluetooth`✅<br/>`AirDrop(Sending)`⚠️<br/>`AirDrop(Receiving)`✅ | `BlueToolFixup.kext`<br/>`BrcmPatchRAM3.kext`<br/>`BrcmFirmwareData.kext`<br/>`BrcmBluetoothInjector.kext` | AirDrop(Sending) not working properly on Monterey |
 
 ## Not working
 
-| Feature | Status | Dependency | Remarks |
-| ------- | ------ | ---------- | ------- |
-| Fingerprint Sensor | ❌ | `NoTouchID.kext` | TouchID is not supported in Hackintosh |
-| Type-C Thunderbolt | ❌ | Hardware | Thunderbolt retimer chip lacks |
-| Type-C Video Output | ❌ | Thunderbolt | New IGPU architecture outputs video through Thunderbolt |
-| Mini-HDMI Port | ❌ | | `[IGFB][LOG][HOT_PLUG] Returning as HPD is low` |
-| Realtek RTL8821CE | ❌ | | Realtek nic will never be driven<br/>Suggest to replace it with:<br/>- Broadcom `BCM943602`/`BCM94350ZAE`/`BCM94360Z3`/`BCM94360Z4`<br/>- Intel `AX200`/`AX201`/`AX210`/`AX211`/`AX411` |
+| Feature | Status | Sub-objects | Dependency | Remarks |
+| ------: | :----: | :---------- | :--------: | :------ |
+| Fingerprint Sensor | ❌ | | `NoTouchID.kext` | TouchID is not supported in Hackintosh |
+| Mini-HDMI Port | ❌ | `Video`❌<br/>`Audio`❌ | | `[IGFB][LOG][HOT_PLUG] Returning as HPD is low` |
+| Realtek RTL8821CE | ❌ | `Bluetooth`❌<br/>`Wi-Fi`❌ | | Realtek wireless nic is not supported in Hackintosh<br/>Suggest to replace it with Broadcom or Intel based:<br/>`BCM943602`/`BCM94350ZAE`/`BCM94360Z3`/`BCM94360Z4`<br/>`AX200`/`AX201`/`AX210`/`AX211`/`AX411` |
 
 ## BIOS Configuration
 
