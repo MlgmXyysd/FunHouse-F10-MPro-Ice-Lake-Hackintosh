@@ -60,7 +60,7 @@
 | Hibernation | ✅ | `HibernationFixup.kext` | |
 | NVMe Drive Battery Management | ✅ | `NVMeFix.kext` | |
 | Battery Percentage Indication | ✅ | | Native supported without patching |
-| CPU Power Management (SpeedShift) | ✅ | `CPUFriend.kext`<br/>`CPUFriendProvider.kext` |  |
+| CPU Turbo Boost | ✅ | | Native supported without patching |
 | USB Power Properties | ✅ | `SSDT-EC-USBX-LAPTOP`<br/>`ECEnabler.kext` | |
 | Built-in TouchPad | ✅ | `VoodooI2C*.kext` | All gesture avaliable |
 | Built-in Keyboard | ✅ | `VoodooPS2*.kext` | |

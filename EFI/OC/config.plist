@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>#WARNING - 1</key>
-	<string>Do NOT try to load this EFI directly.</string>
-	<key>#WARNING - 2</key>
-	<string>Ensure you have filled in the correct serial number before booting.</string>
-	<key>#WARNING - 3</key>
-	<string>Choose kexts according to your Wi-Fi/Bluetooth.</string>
-	<key>#WARNING - 4</key>
 	<string>There is no warranty for this EFI.</string>
+	<key>#WARNING - 2</key>
+	<string>Do NOT try to load this EFI directly.</string>
+	<key>#WARNING - 3</key>
+	<string>Ensure you have filled in the correct serial number before booting.</string>
+	<key>#WARNING - 4</key>
+	<string>Enable nic kexts according to your hardware and OS manually.</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -826,42 +826,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NoTouchID</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>CPUFriendDataProvider.kext</string>
-				<key>Comment</key>
-				<string>Dynamic Power Management</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>CPUFriend.kext</string>
-				<key>Comment</key>
-				<string>Dynamic Power Management</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/CPUFriend</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
