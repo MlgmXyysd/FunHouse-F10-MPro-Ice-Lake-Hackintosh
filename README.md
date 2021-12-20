@@ -1,3 +1,6 @@
+<div align="center">
+<img src=".github/banner.png" width="350px">
+</div>
 <h1 align="center">FunHouse F10 MPro (Ice Lake) Hackintosh</h1>
 <h3 align="center">Pre-built out-of-the-box OpenCore EFI</h3>
 <br>
@@ -53,7 +56,7 @@
 | BootLoader | ✅ | `Boot`✅ | `OpenCore` | OpenCore 0.7.6 |
 | NVRAM | ✅ | | `SSDT-PMC` | |
 | Integrated Graphics | ✅ | `Display`✅<br/>`Accleration QE/CI`✅ | `WhateverGreen.kext` | |
-| HiDPI | ✅ | | | [Script](https://github.com/xzhih/one-key-hidpi) required |
+| HiDPI | ✅ | | | [Script](https://github.com/xzhih/one-key-hidpi) required<br/>If screen flashes, close the laptop cover and reopen it |
 | Brightness Adjustments | ✅ | | `SSDT-PNLF-CFL`<br/>`WhateverGreen.kext`<br/>`AppleBacklightSmoother.kext` | |
 | Sleep | ✅ | `S3`✅ | `HibernationFixup.kext` | |
 | Hibernation | ✅ | `Mode 3`✅<br/>`Mode 25`✅ | `HibernationFixup.kext` | |
@@ -88,33 +91,11 @@
 
 ## BIOS Configuration
 
-> BIOS Version 2.20.1275
-```
-├─> Advanced
-│  ├─> CPU Configuration
-│  │  ├─> Software Guard Extensions (SGX) -> `Disabled`
-│  │  └─> Intel (VMX) Virtualization Technology -> `Enabled`
-│  ├─> Power & Performance
-│  │  └─> CPU - Power Management Control
-│  │     └─> CPU Lock Configuration
-│  │        ├─> CFG Lock -> `Disabled`
-│  │        └─> Overclocking Lock -> `Disabled`
-│  ├─> Platform Settings
-│  │  └─> Charging Method -> `Fast Charging`
-│  └─> CSM Configuration
-│     └─> CSM Support -> `Disabled`
-├─> Chipset
-│  ├─> System Agent (SA) Configuration
-│  │  ├─> Graphics Configuration
-│  │  │  └─> DVMT Pre-Allocated -> `160M`
-│  │  ├─> VT-d -> `Disabled`
-│  │  └─> Above 4GB MMIO BIOS assignment ->`Enabled`
-│  └─> PCH-IO Configuration
-│     └─> Security Configuration
-│        └─> RTC Memory Lock -> `Disabled`
-└─> Boot
-   └─> Fast Boot -> `Disabled`
-```
+- Moved to [BIOS Customization](BIOS#recommended-configuration)
+
+## Splash Logo Customization
+
+- Check [BIOS Customization](BIOS#splash-logo-customization)
 
 ## Donation
 
