@@ -1,5 +1,5 @@
 <div align="center">
-<img src=".github/banner.png" width="350px">
+<img src=".github/banner.png" style="width: 100%; max-width: 600px;">
 </div>
 <h1 align="center">FunHouse F10 MPro (Ice Lake) Hackintosh</h1>
 <h3 align="center">Pre-built out-of-the-box OpenCore EFI</h3>
@@ -75,7 +75,7 @@
 | MicroSD Slot | ✅ | `Hotplug`✅ | `USBMap.kext` | |
 | USB Type-A Ports | ✅ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`Hub`✅ | `USBMap.kext` | |
 | USB Type-C Port | ⚠️ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`PD Charging`✅<br/>`Hub`✅<br/>`Hotplug`✅<br/>`Display`❌<br/>`Thunderbolt`❌ | `USBMap.kext` | Hotplug fully supported<br/>GT1 iGPU outputs via Thunderbolt, but Thunderbolt hardware (Retimer) lacks |
-| Ethernet | ✅ | | `NullEthernet.kext` | Spoofing system only, no networking |
+| Ethernet | ✅ | `Ethernet Docking`✅<br/>`Ethernet Spoofing`✅ | `SSDT-ETHERNET`<br/>`NullEthernet.kext` | Disabled by default, you can manually enable them to spoof system if you need to |
 | WiFi (Intel) | ⚠️ | `WPA3`⚠️ | `AirportItlwm-*.kext` | WPA3 will have a very slow speed |
 | WiFi (Broadcom) | ✅ | `WPA3`✅ | `AirportBrcmFixup.kext`<br/>`AirportBrcm*_Injector.kext` | |
 | Bluetooth (Intel) | ⚠️ | `Bluetooth`✅<br/>`AirDrop(Sending)`❌<br/>`AirDrop(Receiving)`❌ | `BlueToolFixup.kext`<br/>`IntelBluetoothFirmware.kext`<br/>`IntelBluetoothInjector.kext` | |

@@ -74,7 +74,7 @@
 				<key>Comment</key>
 				<string>Fake Ethernet</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-ETHERNET.aml</string>
 			</dict>
@@ -751,7 +751,7 @@
 				<key>Comment</key>
 				<string>Fake Ethernet</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NullEthernet</string>
 				<key>MaxKernel</key>
