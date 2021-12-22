@@ -4,6 +4,8 @@
 
 **This tool must be run from a privileged account (administrator/root).**
 
+## Platform
+
 - Windows i386: [`FPTW.exe`](FPTW.exe)
 - Windows amd64: [`FPTW64.exe`](FPTW64.exe)
 - Linux amd64: [`FPT`](FPT)

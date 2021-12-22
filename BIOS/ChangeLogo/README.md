@@ -2,6 +2,8 @@
 
 > Version: 5.00.0002
 
+## Platform
+
 - Windows i386: [`ChangeLogo.exe`](ChangeLogo.exe)
 
 ## Usage

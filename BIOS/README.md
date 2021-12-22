@@ -4,7 +4,7 @@
 
 ## Recommended Configuration
 
-> BIOS Version 2.20.1275
+> Tested BIOS Version 2.20.1275
 ```
 ├─> Advanced
 │  ├─> CPU Configuration
@@ -73,3 +73,20 @@
 
 - Then you can [flash](#flash--restore) `<outFirmwareFile>` to BIOS.
 - I made [Apple splash](AppleSplash), you can use it directly. It can make Hackintosh look more like Macintosh :)
+
+## LCD Firmware
+
+### Before starting
+
+- System Requirement: Windows `x86` `x64`
+- [Acer Aux Update](AuxUpdate)
+- [LCD Firmware](AuxUpdate/initcode.bin) placed with `AuxUpdate.exe`
+- [`Intel® Graphics Command Center`](https://www.microsoft.com/en-us/p/intel-graphics-command-center/9plfnlnt3g5g)
+- Battery capacity >= 20%
+
+### Update firmware from PWM mode to DC mode
+
+1. Open `Intel® Graphics Command Center`
+2. Disable `System -> Power -> Power Self Reflash(PSR)` and `System -> Adapter -> Power Self Reflash(PSR)`
+3. Run `AuxUpdate.exe`, and wait for the prompt of `Update successful`
+4. Enable `System -> Power -> Power Self Reflash(PSR)` and `System -> Adapter -> Power Self Reflash(PSR)`
