@@ -1,0 +1,155 @@
+;-------------------------------------------------------------------------------
+; INTEL CONFIDENTIAL
+;
+; Copyright (c) 2013-2018 Intel Corporation All Rights Reserved 
+;
+; The source code contained or described herein and all documents related to 
+; the source code ("Material") are owned by Intel Corporation or its suppliers 
+; or licensors. Title to the Material remains with Intel Corporation or its 
+; suppliers and licensors. The Material contains trade secrets and proprietary 
+; and confidential information of Intel or its suppliers and licensors. The 
+; Material is protected by worldwide copyright and trade secret laws and treaty 
+; provisions. No part of the Material may be used, copied, reproduced, 
+; modified, published, uploaded, posted, transmitted, distributed, or 
+; disclosed in any way without Intel's prior express written permission.
+;
+; No license under any patent, copyright, trade secret or other intellectual 
+; property right is granted to or conferred upon you by disclosure or delivery 
+; of the Materials, either expressly, by implication, inducement, estoppel or 
+; otherwise. Any license under such intellectual property rights must be 
+; expressed and approved by Intel in writing.
+;------------------------------------------------------------------------------
+
+[Version]
+Signature = "$Windows NT$"
+Class = HIDClass
+ClassGuid = {745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider = %INTEL%
+DriverVer = 11/21/2019,2.2.1.379
+CatalogFile = HidEventFilter.cat
+PnpLockDown = 1
+
+;----------------------------------------------------------------------
+; File Information
+;----------------------------------------------------------------------
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,""
+
+[SourceDisksFiles]
+HidEventFilter.sys = 1
+
+[DestinationDirs]
+DefaultDestDir=13
+CopyDriver = 13
+CopyDriverLegacy = 12
+
+;-------------------------------------------------------------------------------
+; Manufacturer and Models Section
+;-------------------------------------------------------------------------------
+
+[Manufacturer]
+%INTEL% = INTEL,NTamd64.10.0...17134,NTamd64.10.0
+
+[INTEL.NTamd64.10.0...17134]
+%HidEventFilter% = HidEventFilter, ACPI\INT33D5
+; HWID for TGL
+%HidEventFilter% = HidEventFilter, ACPI\INTC1051
+
+[INTEL.NTamd64.10.0]
+%HidEventFilter% = HidEventFilterLegacy, ACPI\INT33D5
+
+;------------------------------------------------------------------------------
+; HIDEventFilter 
+;------------------------------------------------------------------------------
+
+[HidEventFilter.NTamd64]
+CopyFiles=CopyDriver
+
+[HidEventFilterLegacy.NTamd64]
+CopyFiles=CopyDriverLegacy
+
+[CopyDriver]
+HidEventFilter.sys
+
+[CopyDriverLegacy]
+HidEventFilter.sys
+
+[HidEventFilter.NTamd64.Services]
+AddService = HidEventFilter, 0x00000002, HidEventFilter_Service, HidEventFilterEtw_Install, System, HidEventFilter
+
+[HidEventFilterLegacy.NTamd64.Services]
+AddService = HidEventFilter, 0x00000002, HidEventFilter_ServiceLegacy, HidEventFilterEtwLegacy_Install, System, HidEventFilter
+
+[HidEventFilter_Service]
+DisplayName = %HidEventFilter%
+ServiceType = %SERVICE_KERNEL_DRIVER%
+StartType = %SERVICE_DEMAND_START%
+ErrorControl = %SERVICE_ERROR_IGNORE%
+ServiceBinary = %13%\HidEventFilter.sys
+LoadOrderGroup = Base
+
+[HidEventFilter_ServiceLegacy]
+DisplayName = %HidEventFilter%
+ServiceType = %SERVICE_KERNEL_DRIVER%
+StartType = %SERVICE_DEMAND_START%
+ErrorControl = %SERVICE_ERROR_IGNORE%
+ServiceBinary = %12%\HidEventFilter.sys
+LoadOrderGroup = Base
+
+[HidEventFilter.NTamd64.HW]
+AddReg = HidEventFilter_Parameters.AddReg
+
+[HidEventFilter_Parameters.AddReg]
+HKR,,"UpperFilters",0x00010000,"mshidkmdf"
+
+[HidEventFilterLegacy.NTamd64.HW]
+AddReg = HidEventFilter_ParametersLegacy.AddReg
+
+[HidEventFilter_ParametersLegacy.AddReg]
+HKR,,"UpperFilters",0x00010000,"mshidkmdf"
+
+;----------------------------------------------------------------------
+; ETW Support compontents
+;----------------------------------------------------------------------
+
+[HidEventFilterEtw_Install]
+AddReg=HidEventFilterEtw_AddReg
+
+[HidEventFilterEtwLegacy_Install]
+AddReg=HidEventFilterEtwLegacy_AddReg
+
+[HidEventFilterEtw_AddReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}",,%REG_SZ%,"HidEventFilter"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}","ResourceFileName",%REG_EXPAND_SZ%,"%13%\HidEventFilter.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}","MessageFileName",%REG_EXPAND_SZ%,"%13%\HidEventFilter.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}","Enabled",%REG_DWORD%,1
+
+[HidEventFilterEtwLegacy_AddReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}",,%REG_SZ%,"HidEventFilter"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}","ResourceFileName",%REG_EXPAND_SZ%,"%%SystemRoot%%\system32\drivers\HidEventFilter.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}","MessageFileName",%REG_EXPAND_SZ%,"%%SystemRoot%%\system32\drivers\HidEventFilter.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{DDE50426-FA77-4088-8E0C-F2F553FB6843}","Enabled",%REG_DWORD%,1
+
+;================================================================
+;   Strings
+;================================================================
+[Strings]
+INTEL                           = "Intel(R) Corporation"
+HidEventFilter                  = "Intel(R) HID Event Filter"
+DISK_NAME                       = "Intel(R) HID Event Filter install disk"
+SERVICE_BOOT_START              = 0x0
+SERVICE_SYSTEM_START            = 0x1
+SERVICE_AUTO_START              = 0x2
+SERVICE_DEMAND_START            = 0x3
+SERVICE_DISABLED                = 0x4
+SERVICE_KERNEL_DRIVER           = 0x1
+SERVICE_ERROR_IGNORE            = 0x0
+SERVICE_ERROR_NORMAL            = 0x1
+SERVICE_ERROR_SEVERE            = 0x2
+SERVICE_ERROR_CRITICAL          = 0x3
+REG_EXPAND_SZ                   = 0x00020000
+REG_DWORD                       = 0x00010001
+REG_MULTI_SZ                    = 0x00010000
+REG_BINARY                      = 0x00000001
+REG_SZ                          = 0x00000000

@@ -1,0 +1,205 @@
+;/*++
+;
+;Copyright (c) 2009-2013 Realtek Semiconductor Corporation All rights Reserved
+;
+;Module Name:
+;
+;    Btfilter.INF
+;--*/
+[Version]
+Signature   = "$WINDOWS NT$"
+Class=Bluetooth
+CLASSGUID={e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
+CatalogFile= RtkFilter.cat
+Provider    = %REALTEK%
+DriverVer = 03/27/2020,1.8.1025.3000
+;*************************
+; Source file information
+;*************************
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+[SourceDisksFiles]
+PidVid_List.dat         = 1
+RtkBtfilter.sys         = 1,,
+RtkBtManServ.exe	= 1,,      ;RtkServ
+rtl8723d_mp_chip_bt40_fw_asic_rom_patch_new.dat             =   1
+rtl8822b_mp_chip_bt40_fw_asic_rom_patch_new.dat             =   1
+rtl8821c_mp_chip_bt40_fw_asic_rom_patch_new.dat             =   1
+rtl8822c_mp_chip_bt40_fw_asic_rom_patch_new.dat             =   1
+;*************************
+; Destination information
+;*************************
+[DestinationDirs]
+RsBthFilter.CopyList = 12
+RsBthpatch.CopyList = 10
+RtkBtManServ.CopyList = 10                      ;RtkServ
+[RsBthFilter.CopyList]
+RtkBtfilter.sys
+[RtkBtManServ.CopyList]                         ;RtkServ
+RtkBtManServ.exe                                ;RtkServ
+[RsBthpatch.CopyList]
+PidVid_List,PidVid_List.dat,,0x00002000
+rtl8723d_mp_chip_bt40_fw_asic_rom_patch_new,rtl8723d_mp_chip_bt40_fw_asic_rom_patch_new.dat,,0x00002000
+rtl8822b_mp_chip_bt40_fw_asic_rom_patch_new,rtl8822b_mp_chip_bt40_fw_asic_rom_patch_new.dat,,0x00002000
+rtl8821c_mp_chip_bt40_fw_asic_rom_patch_new,rtl8821c_mp_chip_bt40_fw_asic_rom_patch_new.dat,,0x00002000
+rtl8822c_mp_chip_bt40_fw_asic_rom_patch_new,rtl8822c_mp_chip_bt40_fw_asic_rom_patch_new.dat,,0x00002000
+;*************************
+; Manufacturer information
+;*************************
+[Manufacturer]
+%REALTEK% = Realtek,NTamd64.10.0    ;NTamd64
+;We only support Vista and later
+[Realtek]                                                                  
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B009
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B00A
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B00B
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C025
+%HP5.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B00C
+%HP.DeviceDesc%			=	RsBthFilter, USB\VID_0BDA&PID_B001
+%HP.DeviceDesc%			=	RsBthFilter, USB\VID_0BDA&PID_B006
+%HP.DeviceDesc%		        =	RsBthFilter, USB\VID_0BDA&PID_B008
+[Realtek.NTamd64.10.0]   ;NTamd64
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_D720          ;8723DE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0930&PID_0231	    ;8723DE for Toshiba
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3524          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3525          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04CA&PID_4002          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04CA&PID_4003          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_D723&MI_00    ;8723DU
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0C62&PID_B010          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0C62&PID_B011          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_2FF8&PID_B010          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_2FF8&PID_B011          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B010          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B011          ;8723DE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C821          ;8821CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C024          ;8821CE for Lenovo
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C030          ;8821CE for NEC
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04CA&PID_4000          ;8821CE for Asus
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04CA&PID_4001          ;8821CE for Asus
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B820&MI_00    ;8821CU
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C820&MI_00    ;8821CU
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3529          ;8821CE for Asus
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3530          ;8821CE for Asus
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3532          ;8821CE for AZW STD
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3533          ;8821CE for AZW STD
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C823          ;8821CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C824          ;8821CE for Acer
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C825          ;8821CE for Samsung
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C827          ;8821CE for Xiaomi
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3538          ;8821CE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3539          ;8821CE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_3540          ;8821CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_2FF8&PID_3541          ;8821CE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_2FF8&PID_3543          ;8821CE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B023	;8822BE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B028    ;8822BE for NEC
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B029    ;8822BE for Acer
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B030    ;8822BE for ECS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B031    ;8822BE for ECS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B033    ;8822BE for ECS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B822
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3526    ;8822BE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3531    ;8822BE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0B05&PID_185C    ;8822BE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04CA&PID_4004    ;8822BE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B82C&MI_00   ;8822BU
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0B05&PID_1865    ;8822BE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3536    ;8822BE for Azurewave
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3537    ;8822BE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3545    ;8822BE for ECS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04C5&PID_15D7    ;8822BE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C822    ;8822CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3548    ;8822CE for Asus
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3549    ;8822CE for Azurewave
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_8771    ;8761B
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B82C&MI_00    ;for X-Box
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B009          ;8723DE for HP
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B00A          ;8821CE for HP
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B00B          ;8822BE for HP
+%HPNew.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C025          ;8821CE for HP
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C125
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C81D    ;8822CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C82C&MI_00    ;8822CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B035    ;8822BE for toshiba
+%HP5.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B00C
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C02F    ;8822CE-VS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C82F    ;8822CE-VS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_024C&PID_C822    ;8822CE for pinwang
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04CA&PID_4005    ;8822CE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C123    ;8822CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0B05&PID_18EA    ;8821CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0B05&PID_18EB    ;8821CE
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C03F    ;
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_2FF8&PID_3051
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0B05&PID_18EF    ;8822CE for ASUS
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_04C5&PID_161F    ;8822CE for Fujitsu
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_D739    ;8723DE for dell
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C126    ;8822CE for NEC
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3552    ;8821CE for Azurewave
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_B034    ;RTL8822BEH-VR for ZION
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_3053    ;RTL8822CE for Acer
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0CB5&PID_C547    ;8822CE for xiaomi
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C127    ;RTL8822CE for Dynabook
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C031    ;8821CE for Dynabook
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C128    ;8822CE 
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3553    ;8822CE  for Azurewave
+
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_0BDA&PID_C129    ;8822CE for Dynabook
+%RealTK.DeviceDesc%		=	RsBthFilter, USB\VID_13D3&PID_3555    ;8822CE for ASUS
+
+[RsBthFilter.NT]
+Include=bth.inf
+Needs=BthUsb.NT
+CopyFiles=RsBthFilter.CopyList
+CopyFiles=RtkBtManServ.CopyList                   ;RtkServ
+CopyFiles=RsBthpatch.CopyList
+[RsBthFilter.NT.HW]
+include    = bth.inf
+needs      = BthUsb.NT.HW
+AddReg=RsBthFilter.NT.HW.Reg
+[RsBthFilter.NT.HW.Reg]
+HKR, , LowerFilters, 0x00010000, RtkBtFilter
+HKR, ,"RemoteWakeEnabled",0x00010001,1
+HKR, ,"DeviceRemoteWakeSupported",0x00010001,1
+HKR, ,"VsMsftOpCode",0x00010001,0Xfcf0
+[RsBthFilter.NT.Services]
+include    = bth.inf
+needs      = BthUsb.NT.Services
+;Addservice = BTHUSB, 0x00000002, BthUsb_Service_Inst, BthUsb_EventLog_Inst
+;Addservice = BTHPORT, , BthPort_Service_Inst, BthPort_EventLog_Inst
+AddService = RtkBtFilter, , RtkBtFilter_Service_Inst
+AddService = RtkBtManServ, 0x00000800, RtkBtManServ_Service_Inst     ;RtkServ
+[RtkBtFilter_Service_Inst]
+DisplayName     = %BtFilt.SvcDesc%                            
+ServiceType     = 1                  ; SERVICE_KERNEL_DRIVER
+StartType       = 3                  ; SERVICE_DEMAND_START
+ErrorControl    = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary   = %12%\RtkBtfilter.sys                            
+LoadOrderGroup = PNP Filter  
+AddReg=RsBthFilter_Services_Inst_AddReg
+[RsBthFilter_Services_Inst_AddReg]
+HKR,"Parameters","bPatchInSystemRoot",0x00010001,1    ; SetBit
+;HKR,"Parameters","bPatchInSystemRoot",0x00010001,0    ; ClearBit
+[RtkBtManServ_Service_Inst]                                        ;RtkServ
+DisplayName     = %RtkBtManServ.SvcDesc%                               ;RtkServ
+ServiceType     = 0x10                  ; Service                  ;RtkServ
+StartType       = 2                  ; SERVICE_DEMAND_START        ;RtkServ
+ErrorControl    = 0                  ; SERVICE_ERROR_NORMAL        ;RtkServ
+ServiceBinary   = %10%\RtkBtManServ.exe                            ;RtkServ
+;*****************************************
+; Bluetooth Filter String Section
+;*****************************************
+[Strings]
+REALTEK		= "Realtek Semiconductor Corp."
+DiskId1			= "Realtek Bluetooth Filter Installation Disk #1"
+BtFilt.SvcDesc		= "Realtek Bluetooth Filter Driver"
+RTK.DeviceDesc		= "Realtek Bluetooth 4.0 Adapter"
+RealTK.DeviceDesc		= "Realtek Bluetooth Adapter"
+HP.DeviceDesc		= "Realtek Bluetooth 4.0 Adapter"
+ASUS.DeviceDesc		= "Realtek Bluetooth 4.0 Adapter"
+LC.DeviceDesc		= "Realtek Bluetooth 4.0 Adapter"
+DELL.DeviceDesc		= "Dell Wireless 1801 Bluetooth 4.0 LE"
+RtkBtManServ.SvcDesc	= "Realtek Bluetooth Device Manager Service"    ;RtkServ
+HPNew.DeviceDesc		= "Realtek Bluetooth 4.2 Adapter"
+HP5.DeviceDesc		= "Realtek Bluetooth 5 Adapter"

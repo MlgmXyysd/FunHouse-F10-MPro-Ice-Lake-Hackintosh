@@ -1,0 +1,361 @@
+;*******************************************************************************
+;*                                                                            **
+;*                     I N T E L   P R O P R I E T A R Y                      **
+;*                                                                            **
+;*   COPYRIGHT (c) 2003-2020 BY INTEL CORPORATION. ALL RIGHTS RESERVED.  NO   **
+;*   PART  OF  THIS  PROGRAM OR PUBLICATION MAY BE REPRODUCED, TRANSMITTED,   **
+;*   TRANSCRIBED, STORED IN A RETRIEVAL  SYSTEM,  OR  TRANSLATED  INTO  ANY   **
+;*   LANGUAGE OR COMPUTER LANGUAGE IN ANY FORM OR BY ANY MEANS, ELECTRONIC,   **
+;*   MECHANICAL, MAGNETIC, OPTICAL, CHEMICAL, MANUAL, OR OTHERWISE, WITHOUT   **
+;*   THE PRIOR WRITTEN PERMISSION OF :                                        **
+;*                                                                            **
+;*                             INTEL CORPORATION                              **
+;*                                                                            **
+;*                          2200 MISSION COLLEGE BLVD                         **
+;*                                                                            **
+;*                     SANTA CLARA, CALIFORNIA 95052-8119                     **
+;*                                                                            **
+;*******************************************************************************
+;
+;
+; File Name: heci.inf
+; Install information file for TeeDriver Driver
+;--------- Version Section ---------------------------------------------------
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%Provider%
+DriverVer = 10/01/2020,2040.100.0.1029
+CatalogFile=HECI.cat
+PnpLockDown=1
+
+[ControlFlags]
+; Pnp drivers should not be installable via non-PnP hardware dialogs
+ExcludeFromSelect = *
+
+;--------- DestinationDirs Section -------------------------------------------
+
+[DestinationDirs]
+TEE_Files_Driver_x86 = 13, x86
+TEE_Files_Driver_x64 = 13, x64
+
+
+;--------- SourceDiskNames and SourceDiskFiles Section -----------------------
+; These sections identify source disks and files for installation.
+
+[SourceDisksNames]
+1=%Location%,
+
+[SourceDisksFiles.x86]
+TeeDriverW10.sys=1,.\x86
+
+
+[SourceDisksFiles.amd64]
+TeeDriverW10x64.sys=1,.\x64
+
+;--------- Manufacturer and Models Sections ----------------------------------
+
+[Manufacturer]
+%MfgName% = Intel,NTx86.10.0...16299, NTamd64.10.0...16299
+
+[Intel.NTx86.10.0...16299]
+; DisplayName               Section           DeviceId
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_9CBA   ;ME10.x - BDW/WPT-LP
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_9D3A   ;ME11.x - SKL/SPT-LP, KBL/SPT-LP
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_A13A   ;ME11.0 - SKL/SPT-H
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_A2BA   ;ME11.6 - KBL/KBP-S
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_9DE0   ;ME12.0 - CNL/CNP-LP
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_A360   ;ME12.0 - CNL-H
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_3DE0   ;ME13.0 - ICL-H
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_34E0   ;ME13.0 - ICL-LP
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_38E0   ;ME13.0 - ICL-LP
+%TEE_DeviceDesc1%=TEE_DDI, PCI\VEN_8086&DEV_18D3   ;ME13.0 - CDF
+%TEE_DeviceDesc1%=TEE_DDI_LKF, PCI\VEN_8086&DEV_98E0   ;ME13.30 - LKF
+
+;
+
+[Intel.NTamd64.10.0...16299]
+; DisplayName               Section           DeviceId
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_9CBA        ;ME10.x - BDW/WPT-LP
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_9D3A        ;ME11.x - SKL/SPT-LP, KBL/SPT-LP
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A13A        ;ME11.0 - SKL/SPT-H
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A2BA        ;ME11.6 - KBL/KBP-S
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A1BA        ;ME11.x - Purley WS SKL/LBG - Production
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A23A        ;ME11.x - Purley WS SKL/LBG - PreProduction
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_9DE0        ;ME12.0 - CNL/CNP-LP
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A360        ;ME12.0 - CNL-H
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_3DE0        ;ME13.0 - ICL-H
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_34E0        ;ME13.0 - ICL-LP
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_38E0        ;ME13.0 - ICL-LP
+%TEE_DeviceDesc1%=TEE_DDI_LKF_x64, PCI\VEN_8086&DEV_4DE0    ;ME13.50 - JSP
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_18D3        ;ME13.0 - CDF
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_02E0        ;ME14.0 - CML
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_06E0        ;ME14.0 - CML
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A3BA        ;ME14.x - CML-V
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_A0E0        ;ME15.0 - TGL-LP
+%TEE_DeviceDesc3%=TEE_DDI_x64_NO_COMP, PCI\VEN_8086&DEV_A0E4   ;ME15.0 - TGL-LP - HECI3
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_43E0            ;ME15.0 - TGL-H
+%TEE_DeviceDesc3%=TEE_DDI_x64_NO_COMP, PCI\VEN_8086&DEV_43E4   ;ME15.0 - TGL-H - HECI3
+%TEE_DeviceDesc1%=TEE_DDI_x64, PCI\VEN_8086&DEV_1BE0            ;ME15.0 - Emmitsburg (Eagle Stream)
+%TEE_DeviceDesc1%=TEE_DDI_LKF_x64, PCI\VEN_8086&DEV_4B70        ;ME15.40 - EHL
+%TEE_DeviceDesc1%=TEE_DDI_x64_NO_ICLS, PCI\VEN_8086&DEV_7AE8   ;ME16.0 - ADL-S
+%TEE_DeviceDesc3%=TEE_DDI_x64_NO_COMP, PCI\VEN_8086&DEV_7AEC   ;ME16.0 - ADL-S - HECI3
+%TEE_DeviceDesc1%=TEE_DDI_x64_NO_ICLS, PCI\VEN_8086&DEV_51E0   ;ME16.0 - ADL-P
+%TEE_DeviceDesc3%=TEE_DDI_x64_NO_COMP, PCI\VEN_8086&DEV_51E4   ;ME16.0 - ADL-P - HECI3
+%TEE_DeviceDesc1%=TEE_DDI_LKF_x64, PCI\VEN_8086&DEV_98E0        ;ME13.30 - LKF
+%TEE_DeviceDesc1%=TEE_DDI_x64_NO_ICLS, PCI\VEN_8086&DEV_7E70   ;ME18.30
+%TEE_DeviceDesc3%=TEE_DDI_x64_NO_COMP, PCI\VEN_8086&DEV_7E74   ;ME18.30 - HECI3
+
+
+
+;---------- DDInstall Sections -----------------------------------------------
+; --------- Windows NT -----------------
+
+
+
+[TEE_DDI]
+CopyFiles=TEE_Files_Driver_x86
+
+[TEE_DDI_LKF]
+CopyFiles=TEE_Files_Driver_x86
+
+[TEE_DDI_x64]
+CopyFiles=TEE_Files_Driver_x64
+
+[TEE_DDI_LKF_x64]
+CopyFiles=TEE_Files_Driver_x64
+
+
+[TEE_DDI_x64_NO_COMP]
+CopyFiles=TEE_Files_Driver_x64
+
+[TEE_DDI_x64_NO_ICLS]
+CopyFiles=TEE_Files_Driver_x64
+
+[TEE_DDI.Services]
+AddService = MEI, %FLG_ADDREG_NOCLOBBER%, TEE_Service, TEE_EventLog.EventLog
+
+[TEE_DDI_x64.Services]
+AddService = MEIx64, %FLG_ADDREG_NOCLOBBER%, TEE_Service_X64, TEE_EventLogX64.EventLog
+
+[TEE_DDI_LKF.Services]
+AddService = MEI, %FLG_ADDREG_NOCLOBBER%, TEE_Service, TEE_EventLog.EventLog
+
+[TEE_DDI_LKF_x64.Services]
+AddService = MEIx64, %FLG_ADDREG_NOCLOBBER%, TEE_Service_X64, TEE_EventLogX64.EventLog
+
+[TEE_DDI_x64_NO_COMP.Services]
+AddService = MEIx64, %FLG_ADDREG_NOCLOBBER%, TEE_Service_X64, TEE_EventLogX64.EventLog
+
+[TEE_DDI_x64_NO_ICLS.Services]
+AddService = MEIx64, %FLG_ADDREG_NOCLOBBER%, TEE_Service_X64, TEE_EventLogX64.EventLog
+
+; --------- Components ----------------------
+[TEE_DDI.Components]
+AddComponent = OEM_DAL_component,,OEMExt_DALComponentInstall
+AddComponent = OEM_ICLS_component,,OEMExt_ICLSComponentInstall
+AddComponent = OEM_LMS_component,,OEMExt_LMSComponentInstall
+
+[TEE_DDI_x64.Components]
+AddComponent = OEM_DAL_component,,OEMExt_DALComponentInstall
+AddComponent = OEM_ICLS_component,,OEMExt_ICLSComponentInstall
+AddComponent = OEM_LMS_component,,OEMExt_LMSComponentInstall
+
+[TEE_DDI_LKF_x64.Components]
+AddComponent = OEM_DAL_component,,OEMExt_DALComponentInstall
+AddComponent = OEM_ICLS_component,,OEMExt_ICLSComponentInstall
+
+[TEE_DDI_x64_NO_ICLS.Components]
+AddComponent = OEM_DAL_component,,OEMExt_DALComponentInstall
+AddComponent = OEM_LMS_component,,OEMExt_LMSComponentInstall
+
+[OEMExt_DALComponentInstall]
+ComponentIds=3C4852D6-D47B-4F46-B05E-B5EDC1AA440E ;DAL
+
+[OEMExt_ICLSComponentInstall]
+ComponentIds=PROVIDER_INTEL_COMPONENT_ICLSCLIENT; ICLS
+
+[OEMExt_LMSComponentInstall]
+ComponentIds=5DCEB103-DD64-403C-A17C-94FC5F917A9C ;LMS
+; --------- Files ----------------------
+
+
+[TEE_Files_Driver_x86]
+TeeDriverW10.sys
+
+[TEE_Files_Driver_x64]
+TeeDriverW10x64.sys
+
+
+[TEE_NT_AddReg.Security]
+%SECURITY_STRING%
+
+
+[TEE_DDI.HW]
+AddReg=TEE__NT_HW_AddReg
+
+[TEE_DDI_x64.HW]
+AddReg=TEE__NT_HW_AddReg
+AddReg=TEE__NT_HW_DFX_AddReg
+
+[TEE_DDI_LKF.HW]
+AddReg=TEE__NT_HW_AddReg
+
+[TEE_DDI_LKF_x64.HW]
+AddReg=TEE__NT_HW_AddReg
+AddReg=TEE__NT_HW_DFX_AddReg
+
+[TEE_DDI_x64_NO_COMP.HW]
+AddReg=TEE__NT_HW_AddReg
+AddReg=TEE__NT_HW_DFX_AddReg
+
+[TEE_DDI_x64_NO_ICLS.HW]
+AddReg=TEE__NT_HW_AddReg
+AddReg=TEE__NT_HW_DFX_AddReg
+
+[TEE__NT_HW_DFX_AddReg]
+HKR,"WDF","WdfDirectedPowerTransitionEnable",0x00010001,1
+HKR,"WDF","WdfDirectedPowerTransitionChildrenOptional",0x00010001,1
+
+[TEE__NT_HW_AddReg]
+HKR,,DeviceCharacteristics,0x10001,0
+HKR,,Security,,%SECURITY_STRING%
+HKR, Interrupt Management,, 0x00000010
+HKR, Interrupt Management\MessageSignaledInterruptProperties,, 0x00000010
+HKR, Interrupt Management\MessageSignaledInterruptProperties, MSISupported, 0x00010001, 1
+
+; --------- Service ----------------------
+[TEE_Service]
+DisplayName    = %TEE_SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\x86\TeeDriverW10.sys
+LoadOrderGroup = Extended Base
+AddReg=TEE_NT_AddReg
+
+[TEE_Service_X64]
+DisplayName    = %TEE_SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\x64\TeeDriverW10x64.sys
+LoadOrderGroup = Extended Base
+AddReg=TEE_NT_AddReg
+
+; --------- Registry ----------------------
+
+[TEE_NT_AddReg]
+;reg-root,[subkey],[value-entry-name],[flags],[value]
+HKR,Parameters,WdTimerTic,%REG_DWORD%,120
+HKR,Parameters,LogPages,%REG_DWORD%,0x10
+HKR,Parameters,VerboseOn,%REG_DWORD%,0x1
+HKR,Parameters,BusClients,%REG_MULTI_SZ%,%SPD_GUID%
+
+;-----------------------------------------------------------------------------
+; Common base for all drivers for Eventlog and TextModeFlags
+;
+
+
+[TEE_EventLog.EventLog]
+AddReg = TEE_EventLog.AddEventLog.reg, TEE_EventLog.ETW.addreg
+
+[TEE_EventLog.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll;%13%\x86\TeeDriverW10.sys"
+HKR, , TypesSupported,   0x00010001, 7
+
+[TEE_EventLog.ETW.addreg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}",, 0x0, "TeeDriver"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}","ResourceFileName",0x00020000,"%13%\x86\TeeDriverW10.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}","MessageFileName",0x00020000,"%13%\x86\TeeDriverW10.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}","Enabled",0x00010001,1
+
+
+
+[TEE_EventLogX64.EventLog]
+AddReg = TEE_EventLogX64.AddEventLog.reg, TEE_EventLogX64.ETW.addreg
+
+[TEE_EventLogX64.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll;%13%\x64\TeeDriverW10x64.sys"
+HKR, , TypesSupported,   0x00010001, 7
+
+[TEE_EventLogX64.ETW.addreg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}",, 0x0, "TeeDriver"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}","ResourceFileName",0x00020000,"%13%\x64\TeeDriverW10x64.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}","MessageFileName",0x00020000,"%13%\x64\TeeDriverW10x64.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{E1DA8995-85BC-452B-B62B-0913306A430E}","Enabled",0x00010001,1
+
+
+[TEE_DDI.Wdf]
+KmdfService =  MEI, TEEDriver_wdfsect
+
+[TEE_DDI_x64.Wdf]
+KmdfService =  MEIx64, TEEDriver_wdfsect
+
+[TEE_DDI_LKF.Wdf]
+KmdfService =  MEI, TEEDriver_wdfsect
+
+[TEE_DDI_LKF_x64.Wdf]
+KmdfService =  MEIx64, TEEDriver_wdfsect
+
+[TEE_DDI_x64_NO_COMP.Wdf]
+KmdfService =  MEIx64, TEEDriver_wdfsect
+
+[TEE_DDI_x64_NO_ICLS.Wdf]
+KmdfService =  MEIx64, TEEDriver_wdfsect
+
+[TEEDriver_wdfsect]
+KmdfLibraryVersion = 1.13
+
+;--------- Strings Section ---------------------------------------------------
+
+[Strings]
+Provider = "Intel"
+MfgName = "Intel"
+TEE_DeviceDesc1 = "Intel(R) Management Engine Interface #1"
+TEE_DeviceDesc2 = "Intel(R) Management Engine Interface #2"
+TEE_DeviceDesc3 = "Intel(R) Management Engine Interface #3"
+TEE_DeviceDesc4 = "Intel(R) Management Engine Interface #4"
+TEE_SvcDesc = "Intel(R) Management Engine Interface "
+Location = "Intel(R) Management Engine Interface installation"
+
+REG_SZ                      = 0x00000000
+REG_MULTI_SZ                = 0x00010000
+REG_EXPAND_SZ               = 0x00020000
+REG_BINARY                  = 0x00000001
+REG_DWORD                   = 0x00010001
+REG_NONE                    = 0x00020001
+
+SERVICE_KERNEL_DRIVER       = 0x00000001
+SERVICE_FILE_SYSTEM_DRIVER  = 0x00000002
+SERVICE_ADAPTER             = 0x00000004
+SERVICE_RECOGNIZER_DRIVER   = 0x00000008
+
+SERVICE_BOOT_START          = 0x0
+SERVICE_SYSTEM_START        = 0x1
+SERVICE_AUTO_START          = 0x2
+SERVICE_DEMAND_START        = 0x3
+SERVICE_DISABLED            = 0x4
+
+SERVICE_ERROR_IGNORE        = 0x00000000
+SERVICE_ERROR_NORMAL        = 0x00000001
+SERVICE_ERROR_SEVERE        = 0x00000002
+SERVICE_ERROR_CRITICAL      = 0x00000003
+
+FLG_ADDREG_NOCLOBBER        = 0x00000002
+FLG_ADDREG_DELVAL           = 0x00000004
+FLG_ADDREG_APPEND           = 0x00000008
+FLG_ADDREG_KEYONLY          = 0x00000010
+FLG_ADDREG_OVERWRITEONLY    = 0x00000020
+FLG_ADDREG_64BITKEY         = 0x00001000
+FLG_ADDREG_KEYONLY_COMMON   = 0x00002000
+FLG_ADDREG_32BITKEY         = 0x00004000
+
+SPSVCINST_STOPSERVICE			= 0x00000200
+SPSVCINST_DELETEEVENTLOGENTRY	= 0x00000004	
+SPD_GUID = "{2A39291F-5551-482F-99CB-9E2274978CA8}"
+SECURITY_STRING = "D:P(A;CI;GA;;;BA)(A;CI;GA;;;SY)(A;CI;GA;;;LS)"
+
+

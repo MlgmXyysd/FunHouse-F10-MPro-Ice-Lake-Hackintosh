@@ -1,0 +1,341 @@
+;-------------------------------------------------------------------------------
+; INTEL CONFIDENTIAL
+;
+; Copyright (c) 2013-2020 Intel Corporation All Rights Reserved 
+;
+; The source code contained or described herein and all documents related to 
+; the source code ("Material") are owned by Intel Corporation or its suppliers 
+; or licensors. Title to the Material remains with Intel Corporation or its 
+; suppliers and licensors. The Material contains trade secrets and proprietary 
+; and confidential information of Intel or its suppliers and licensors. The 
+; Material is protected by worldwide copyright and trade secret laws and treaty 
+; provisions. No part of the Material may be used, copied, reproduced, 
+; modified, published, uploaded, posted, transmitted, distributed, or 
+; disclosed in any way without Intel's prior express written permission.
+;
+; No license under any patent, copyright, trade secret or other intellectual 
+; property right is granted to or conferred upon you by disclosure or delivery 
+; of the Materials, either expressly, by implication, inducement, estoppel or 
+; otherwise. Any license under such intellectual property rights must be 
+; expressed and approved by Intel in writing.
+;------------------------------------------------------------------------------
+
+[Version] 
+Signature = "$WINDOWS NT$" 
+Class=System
+ClassGUID = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider = %INTEL% 
+CatalogFile = dptf_cpu.cat
+DriverVer = 01/21/2020,8.7.10201.13396
+PnpLockDown=1
+
+;----------------------------------------------------------------------
+; File Information
+;----------------------------------------------------------------------
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+esif_lf.sys = 1
+esif_umdf2.dll = 1
+dptf_cpu.sys = 1
+dsp.dv = 1
+esif_uf.exe = 1
+Dptf.dll = 1
+DptfPolicyRfim.dll = 1
+DptfPolicyActive.dll = 1
+DptfPolicyActive2.dll = 1
+DptfPolicyAdaptiveUserPresence.dll = 1
+DptfPolicyAdaptivePerformance.dll = 1
+DptfPolicyCritical.dll = 1
+DptfPolicyPassive.dll = 1
+DptfPolicyPassive2.dll = 1
+DptfPolicyPid.dll = 1
+DptfPolicyPowerBoss.dll = 1
+DptfPolicyVirtualSensor.dll = 1
+DptfPolicyPowerShare.dll = 1
+DptfPolicyPowerShare2.dll = 1
+DptfPolicySystemConfiguration.dll = 1
+upe_wwan.dll = 1
+upe_wifi.dll = 1
+upe_nvme.dll = 1
+upe_battery.dll = 1
+upe_socwc.dll = 1
+upe_hwpf.dll = 1
+dptf_helper.exe = 1
+esif_cmp.dll = 1
+esif_ws.dll = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+EsifLf_CopyFiles = 13
+EsifUf10.0_CopyFiles = 13
+EsifDspDv_CopyFiles = 13
+EsifUfService_CopyFiles = 13
+EsifDptfDll_CopyFiles = 13
+
+;-------------------------------------------------------------------------------
+; Manufacturer and Models Section
+;-------------------------------------------------------------------------------
+
+[Manufacturer]
+%INTEL% = INTEL,NTamd64.10.0...17134
+
+[INTEL.NTamd64.10.0...17134]
+%PROCSNB.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_0103
+%PROCIVB.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_0153
+%PROCHSW.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_0C03
+%PROCHSW.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_0A03
+%PROCHSW.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_0D03
+%PROCBDW.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_1603
+%PROCSKL.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_1903
+%PROCCHT.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_22DC
+%PROCBX0.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_0A8C
+%PROCBX1.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_1A8C
+%PROCBXX.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_4A8C
+%PROCBXP.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_5A8C
+%PROCCNL.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_5A03
+%PROCGLK.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_318C
+%PROCICL.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_8A03
+%PROCLKF.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_9820
+%PROCTGL.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_9A03
+%PROCJSL.DeviceDesc%  = EsifManager10.0,PCI\VEN_8086&DEV_4E03
+
+;------------------------------------------------------------------------------
+; EsifManager 
+;------------------------------------------------------------------------------
+
+[EsifManager10.0.NTamd64]
+CopyFiles = EsifLf_CopyFiles, EsifUfService_CopyFiles, EsifUf10.0_CopyFiles, EsifDptfDll_CopyFiles, EsifDspDv_CopyFiles
+
+[EsifLf_CopyFiles]
+esif_lf.sys,,,2
+dptf_cpu.sys,,,2
+
+[EsifUf10.0_CopyFiles]
+esif_umdf2.dll,,,2
+
+[EsifManager10.0.NTamd64.Services]
+AddService = esif_lf,, EsifLf_InstallService, EsifLfEtw_Install, System, esif_lf
+AddService = dptf_cpu,0x00000002, EsifCpu_InstallService, DptfCpuEtw_Install, System, dptf_cpu
+AddService = WUDFRd,0x000001f8, WUDFRD_InstallService, EsifUmdf2Etw_Install, Application
+AddService = esifsvc, 0x000009f8, EsifUf_InstallService, EsifUfEventLog_Install, Application, DPTF
+
+[EsifLf_InstallService]
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\esif_lf.sys
+LoadOrderGroup = Base
+AddReg = Version_AddReg
+
+[Version_AddReg]
+HKR,"Parameters","Version",,"8.7.10201.13396"
+HKR,"Parameters","Display",,"Intel(R) Dynamic Tuning"
+HKR,"Parameters","Path",,"%13%"
+
+[EsifCpu_InstallService]
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\dptf_cpu.sys
+LoadOrderGroup = Base
+
+[WUDFRD_InstallService]
+DisplayName    = %DisplayName%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\WUDFRd.sys
+
+[EsifManager10.0.NTamd64.HW]
+AddReg = Hw_AddFilterReg
+AddReg = Hw_AddLocationReg
+
+[Hw_AddFilterReg]
+HKR,,"UpperFilters", 0x00010008, "esif_lf"
+HKR,,"UpperFilters", 0x00010008, "WUDFRd"
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)"
+
+[Hw_AddLocationReg]
+HKR,,"InstallDir",,%13%
+
+[EsifManager10.0.NTamd64.Wdf]
+KmdfService = esif_lf, Wdf_KmdfSection
+KmdfService = dptf_cpu, Wdf_KmdfSection
+UmdfService = esif_umdf2, Wdf_UmdfSection10.0
+UmdfServiceOrder = esif_umdf2
+UmdfImpersonationLevel = Impersonation
+UmdfKernelModeClientPolicy = AllowKernelModeClients 
+UmdfFileObjectPolicy = AllowNullAndUnknownFileObjects
+UmdfHostProcessSharing = ProcessSharingDisabled
+UmdfDispatcher = FileHandle
+
+[Wdf_KmdfSection]
+KmdfLibraryVersion = 1.11
+
+[Wdf_UmdfSection10.0]
+UmdfLibraryVersion = 2.0.0 ;hardcoded as the same inf is used for 1.11 too.
+ServiceBinary = %13%\esif_umdf2.dll
+
+;----------------------------------------------------------------------
+; ETW Support compontents
+;----------------------------------------------------------------------
+
+[EsifLfEtw_Install]
+AddReg=EsifLfEtw_AddReg
+
+[EsifLfEtw_AddReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDC7B3F9-EB64-4043-9D47-BF2B7457BAA6}",,%FLG_ADDREG_TYPE_SZ%,"EsifLfEtwProvider"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDC7B3F9-EB64-4043-9D47-BF2B7457BAA6}","ResourceFileName",%REG_EXPAND_SZ%,"%13%\esif_lf.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDC7B3F9-EB64-4043-9D47-BF2B7457BAA6}","MessageFileName",%REG_EXPAND_SZ%,"%13%\esif_lf.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDC7B3F9-EB64-4043-9D47-BF2B7457BAA6}","Enabled",%FLG_ADDREG_TYPE_DWORD%,1
+
+[DptfCpuEtw_Install]
+AddReg=DptfCpuEtw_AddReg
+
+[DptfCpuEtw_AddReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{651E0E5C-0946-43FF-B70F-AECD299B29B4}",,%FLG_ADDREG_TYPE_SZ%,"DptfCpuEtwProvider"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{651E0E5C-0946-43FF-B70F-AECD299B29B4}","ResourceFileName",%REG_EXPAND_SZ%,"%13%\dptf_cpu.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{651E0E5C-0946-43FF-B70F-AECD299B29B4}","MessageFileName",%REG_EXPAND_SZ%,"%13%\dptf_cpu.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{651E0E5C-0946-43FF-B70F-AECD299B29B4}","Enabled",%FLG_ADDREG_TYPE_DWORD%,1
+
+[EsifUmdf2Etw_Install]
+AddReg=EsifUmdf2Etw_AddReg
+
+[EsifUmdf2Etw_AddReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{3F51786B-B787-4B2F-84FC-272B76348F6D}",,%FLG_ADDREG_TYPE_SZ%,"EsifUmdf2EtwProvider"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{3F51786B-B787-4B2F-84FC-272B76348F6D}","ResourceFileName",%REG_EXPAND_SZ%,"%13%\esif_umdf2.dll"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{3F51786B-B787-4B2F-84FC-272B76348F6D}","MessageFileName",%REG_EXPAND_SZ%,"%13%\esif_umdf2.dll"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{3F51786B-B787-4B2F-84FC-272B76348F6D}","Enabled",%FLG_ADDREG_TYPE_DWORD%,1
+
+
+;----------------------------------------------------------------------
+; Various ESIF UF components.
+;----------------------------------------------------------------------
+
+[EsifUfService_CopyFiles]
+esif_uf.exe,,,%COPYFLG_NOSKIP%
+
+[EsifDptfDll_CopyFiles]
+Dptf.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyRfim.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyActive.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyActive2.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyAdaptiveUserPresence.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyAdaptivePerformance.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyCritical.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyPassive.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyPassive2.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyPid.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyPowerBoss.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyVirtualSensor.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyPowerShare.dll,,,%COPYFLG_NOSKIP%
+DptfPolicyPowerShare2.dll,,,%COPYFLG_NOSKIP%
+DptfPolicySystemConfiguration.dll,,,%COPYFLG_NOSKIP%
+upe_wwan.dll,,,%COPYFLG_NOSKIP%
+upe_wifi.dll,,,%COPYFLG_NOSKIP%
+upe_nvme.dll,,,%COPYFLG_NOSKIP%
+upe_battery.dll,,,%COPYFLG_NOSKIP%
+upe_socwc.dll,,,%COPYFLG_NOSKIP%
+upe_hwpf.dll,,,%COPYFLG_NOSKIP%
+dptf_helper.exe,,,%COPYFLG_NOSKIP%
+esif_cmp.dll,,,%COPYFLG_NOSKIP%
+esif_ws.dll,,,%COPYFLG_NOSKIP%
+
+[EsifDspDv_CopyFiles]
+dsp.dv,,,%COPYFLG_NOSKIP%
+
+[EsifUf_InstallService]
+DisplayName=%ServiceDisplayName%
+Description=%ServiceDescription%
+ServiceType = %SERVICE_WIN32_OWN_PROCESS%
+StartType = %SERVICE_AUTO_START%
+ErrorControl = %SERVICE_ERROR_NORMAL%
+ServiceBinary = """%13%\%ServiceFile%"""
+
+[EsifUfEventLog_Install]
+AddReg=EsifUfEventLog_AddReg
+
+[EsifUfEventLog_AddReg]
+HKLM,%EventLogProviderKey%,,%FLG_ADDREG_TYPE_SZ%,"DPTF"
+HKLM,%EventLogProviderKey%,"ResourceFileName",%REG_EXPAND_SZ%,"%13%\esif_uf.exe"
+HKLM,%EventLogProviderKey%,"MessageFileName",%REG_EXPAND_SZ%,"%13%\esif_uf.exe"
+HKLM,%EventLogProviderKey%,"Enabled",%FLG_ADDREG_TYPE_DWORD%,1
+HKLM,%EventLogProviderKey%"\ChannelReferences","Count",%FLG_ADDREG_TYPE_DWORD%,1
+HKLM,%EventLogProviderKey%"\ChannelReferences\0\",,%FLG_ADDREG_TYPE_SZ%,"Application"
+HKLM,%EventLogProviderKey%"\ChannelReferences\0\","Flags",%FLG_ADDREG_TYPE_DWORD%,1
+HKLM,%EventLogProviderKey%"\ChannelReferences\0\","Id",%FLG_ADDREG_TYPE_DWORD%,9
+HKLM,%EventLogChannelKey%,"Enabled",%FLG_ADDREG_TYPE_DWORD%,1
+HKLM,%EventLogChannelKey%,"EnableLevel",%FLG_ADDREG_TYPE_DWORD%,0
+HKLM,%EventLogChannelKey%,"EnableProperty",%FLG_ADDREG_TYPE_DWORD%,1
+HKLM,%EventLogChannelKey%,"LoggerName",%REG_EXPAND_SZ%,"EventLog-Application"
+HKLM,%EventLogChannelKey%,"MatchAnyKeyword",%FLG_ADDREG_TYPE_QWORD%,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x80
+HKLM,%EventLogChannelKey%,"MatchAllKeyword",%FLG_ADDREG_TYPE_QWORD%,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+
+;----------------------------------------------------------------------
+; Strings and Constants
+;----------------------------------------------------------------------
+
+[Strings]
+SERVICE_DEMAND_START  = 3
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_ERROR_NORMAL  = 1
+
+INTEL = "Intel"
+DiskName = "Intel(R) Dynamic Tuning"
+
+DisplayName="Windows Driver Foundation - User-mode Driver Framework Reflector"
+
+REG_DWORD                       = 0x00010001
+REG_MULTI_SZ                    = 0x00010000
+REG_EXPAND_SZ                   = 0x00020000
+REG_SZ                          = 0x00000000
+
+AC                              = 0
+DC                              = 1
+
+GUID_MAX_POWER_SAVINGS          = "{a1841308-3541-4fab-bc81-f71556f20b4a}"  ; Power Saver mode
+GUID_TYP_POWER_SAVINGS          = "{381b4222-f694-41f0-9685-ff5bb260df2e}"  ; Balanced
+GUID_MIN_POWER_SAVINGS          = "{8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c}"  ; High Performance
+
+;----------------------------------------------------------------------
+;Strings/Constants specific to ESIF UF Service
+;----------------------------------------------------------------------
+
+SERVICE_WIN32_OWN_PROCESS = 0x00000010
+SERVICE_AUTO_START = 0x2
+
+FLG_ADDREG_TYPE_SZ = 0x00000000
+FLG_ADDREG_TYPE_DWORD = 0x00010001
+FLG_ADDREG_TYPE_QWORD = 0x000B0001
+
+COPYFLG_NOSKIP = 0x00000002
+
+ProductMessageKey="application\DPTF"
+ServiceDisplayName="Intel(R) Dynamic Tuning service"
+ServiceDescription="Intel(R) Dynamic Tuning service"
+ServiceFile="esif_uf.exe"
+DvDir="\ServiceProfiles\LocalService\AppData\Local\Intel\DPTF"
+DspDir="dsp"
+InstallDir="Intel\DPTF"
+EventLogProviderKey="SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{d3cb85d1-d61c-4bcf-9674-7910ee54d6af}"
+EventLogChannelKey="SYSTEM\CurrentControlSet\Control\WMI\Autologger\EventLog-Application\{d3cb85d1-d61c-4bcf-9674-7910ee54d6af}"
+
+PROCSNB.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCIVB.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCHSW.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCBDW.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCSKL.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCCHT.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCBX0.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCBX1.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCBXX.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCBXP.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCCNL.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCGLK.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCICL.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCLKF.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCTGL.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"
+PROCJSL.DeviceDesc  = "Intel(R) Dynamic Tuning Processor Participant"

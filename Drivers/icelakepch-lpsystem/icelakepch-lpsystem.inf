@@ -1,0 +1,245 @@
+; ************************************************************
+; ************************************************************
+; **  Filename: IceLakePCH-LPSystem.inf                     **
+; **  Abstract: Assigns the null driver to devices          **
+; **            for yellow-bang removal and                 **
+; **            brands Intel(R) devices                     ** 
+; ************************************************************
+; ************************************************************
+
+[Version]
+Signature=$WINDOWS NT$
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=IceLakePCH-LP.cat
+DriverVer=07/18/1968, 10.1.12.3
+PnpLockDown=1
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL%=INTEL,NTx86,NTamd64
+
+[INTEL.NTx86]
+%PCI\VEN_8086&DEV_3480Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3480
+%PCI\VEN_8086&DEV_3481Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3481
+%PCI\VEN_8086&DEV_3482Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3482
+%PCI\VEN_8086&DEV_3483Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3483
+%PCI\VEN_8086&DEV_3484Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3484
+%PCI\VEN_8086&DEV_3485Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3485
+%PCI\VEN_8086&DEV_3486Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3486
+%PCI\VEN_8086&DEV_3487Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3487
+%PCI\VEN_8086&DEV_3488Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3488
+%PCI\VEN_8086&DEV_3489Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3489
+%PCI\VEN_8086&DEV_348ADesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348A
+%PCI\VEN_8086&DEV_348BDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348B
+%PCI\VEN_8086&DEV_348CDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348C
+%PCI\VEN_8086&DEV_348DDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348D
+%PCI\VEN_8086&DEV_348EDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348E
+%PCI\VEN_8086&DEV_348FDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348F
+%PCI\VEN_8086&DEV_3490Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3490
+%PCI\VEN_8086&DEV_3491Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3491
+%PCI\VEN_8086&DEV_3492Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3492
+%PCI\VEN_8086&DEV_3493Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3493
+%PCI\VEN_8086&DEV_3494Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3494
+%PCI\VEN_8086&DEV_3495Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3495
+%PCI\VEN_8086&DEV_3496Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3496
+%PCI\VEN_8086&DEV_3497Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3497
+%PCI\VEN_8086&DEV_3498Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3498
+%PCI\VEN_8086&DEV_3499Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3499
+%PCI\VEN_8086&DEV_349ADesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349A
+%PCI\VEN_8086&DEV_349BDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349B
+%PCI\VEN_8086&DEV_349CDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349C
+%PCI\VEN_8086&DEV_349DDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349D
+%PCI\VEN_8086&DEV_349EDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349E
+%PCI\VEN_8086&DEV_349FDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349F
+%PCI\VEN_8086&DEV_34A0Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A0
+%PCI\VEN_8086&DEV_34A1Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A1
+%PCI\VEN_8086&DEV_34A3Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A3
+%PCI\VEN_8086&DEV_34A4Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A4
+%PCI\VEN_8086&DEV_34B0Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B0
+%PCI\VEN_8086&DEV_34B1Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B1
+%PCI\VEN_8086&DEV_34B2Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B2
+%PCI\VEN_8086&DEV_34B3Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B3
+%PCI\VEN_8086&DEV_34B4Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B4
+%PCI\VEN_8086&DEV_34B5Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B5
+%PCI\VEN_8086&DEV_34B6Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B6
+%PCI\VEN_8086&DEV_34B7Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B7
+%PCI\VEN_8086&DEV_34B8Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B8
+%PCI\VEN_8086&DEV_34B9Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B9
+%PCI\VEN_8086&DEV_34BADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BA
+%PCI\VEN_8086&DEV_34BBDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BB
+%PCI\VEN_8086&DEV_34BCDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BC
+%PCI\VEN_8086&DEV_34BDDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BD
+%PCI\VEN_8086&DEV_34BEDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BE
+%PCI\VEN_8086&DEV_34BFDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BF
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_3480Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3480
+%PCI\VEN_8086&DEV_3481Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3481
+%PCI\VEN_8086&DEV_3482Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3482
+%PCI\VEN_8086&DEV_3483Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3483
+%PCI\VEN_8086&DEV_3484Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3484
+%PCI\VEN_8086&DEV_3485Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3485
+%PCI\VEN_8086&DEV_3486Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3486
+%PCI\VEN_8086&DEV_3487Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3487
+%PCI\VEN_8086&DEV_3488Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3488
+%PCI\VEN_8086&DEV_3489Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3489
+%PCI\VEN_8086&DEV_348ADesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348A
+%PCI\VEN_8086&DEV_348BDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348B
+%PCI\VEN_8086&DEV_348CDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348C
+%PCI\VEN_8086&DEV_348DDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348D
+%PCI\VEN_8086&DEV_348EDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348E
+%PCI\VEN_8086&DEV_348FDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_348F
+%PCI\VEN_8086&DEV_3490Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3490
+%PCI\VEN_8086&DEV_3491Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3491
+%PCI\VEN_8086&DEV_3492Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3492
+%PCI\VEN_8086&DEV_3493Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3493
+%PCI\VEN_8086&DEV_3494Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3494
+%PCI\VEN_8086&DEV_3495Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3495
+%PCI\VEN_8086&DEV_3496Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3496
+%PCI\VEN_8086&DEV_3497Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3497
+%PCI\VEN_8086&DEV_3498Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3498
+%PCI\VEN_8086&DEV_3499Desc%=Needs_MSISADRV,PCI\VEN_8086&DEV_3499
+%PCI\VEN_8086&DEV_349ADesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349A
+%PCI\VEN_8086&DEV_349BDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349B
+%PCI\VEN_8086&DEV_349CDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349C
+%PCI\VEN_8086&DEV_349DDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349D
+%PCI\VEN_8086&DEV_349EDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349E
+%PCI\VEN_8086&DEV_349FDesc%=Needs_MSISADRV,PCI\VEN_8086&DEV_349F
+%PCI\VEN_8086&DEV_34A0Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A0
+%PCI\VEN_8086&DEV_34A1Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A1
+%PCI\VEN_8086&DEV_34A3Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A3
+%PCI\VEN_8086&DEV_34A4Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_34A4
+%PCI\VEN_8086&DEV_34B0Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B0
+%PCI\VEN_8086&DEV_34B1Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B1
+%PCI\VEN_8086&DEV_34B2Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B2
+%PCI\VEN_8086&DEV_34B3Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B3
+%PCI\VEN_8086&DEV_34B4Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B4
+%PCI\VEN_8086&DEV_34B5Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B5
+%PCI\VEN_8086&DEV_34B6Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B6
+%PCI\VEN_8086&DEV_34B7Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B7
+%PCI\VEN_8086&DEV_34B8Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B8
+%PCI\VEN_8086&DEV_34B9Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34B9
+%PCI\VEN_8086&DEV_34BADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BA
+%PCI\VEN_8086&DEV_34BBDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BB
+%PCI\VEN_8086&DEV_34BCDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BC
+%PCI\VEN_8086&DEV_34BDDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BD
+%PCI\VEN_8086&DEV_34BEDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BE
+%PCI\VEN_8086&DEV_34BFDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_34BF
+
+[Needs_MSISADRV]
+Include=machine.inf
+Needs=MSISADRV
+
+[Needs_MSISADRV.Services]
+Include=machine.inf
+Needs=MSISADRV.Services
+
+[Needs_NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[Needs_NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Needs_PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[Needs_PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[Needs_PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="INTEL"
+PCI\VEN_8086&DEV_3480Desc="I/O LPC Controller - 3480 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3481Desc="I/O LPC Controller (U SuperSKU) - 3481 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3482Desc="I/O LPC Controller (U Premium) - 3482 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3483Desc="I/O LPC Controller (U Base) - 3483 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3484Desc="I/O LPC Controller - 3484 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3485Desc="I/O LPC Controller - 3485 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3486Desc="I/O LPC Controller - 3486 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3487Desc="I/O LPC Controller - 3487 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3488Desc="I/O LPC Controller - 3488 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3489Desc="I/O LPC Controller - 3489 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_348ADesc="I/O LPC Controller - 348A for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_348BDesc="I/O LPC Controller - 348B for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_348CDesc="I/O LPC Controller - 348C for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_348DDesc="I/O LPC Controller - 348D for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_348EDesc="I/O LPC Controller - 348E for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_348FDesc="I/O LPC Controller - 348F for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3490Desc="I/O LPC Controller - 3490 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3491Desc="I/O LPC Controller - 3491 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3492Desc="I/O LPC Controller - 3492 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3493Desc="I/O LPC Controller - 3493 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3494Desc="I/O LPC Controller - 3494 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3495Desc="I/O LPC Controller - 3495 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3496Desc="I/O LPC Controller - 3496 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3497Desc="I/O LPC Controller - 3497 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3498Desc="I/O LPC Controller - 3498 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_3499Desc="I/O LPC Controller - 3499 for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_349ADesc="I/O LPC Controller - 349A for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_349BDesc="I/O LPC Controller - 349B for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_349CDesc="I/O LPC Controller - 349C for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_349DDesc="I/O LPC Controller - 349D for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_349EDesc="I/O LPC Controller - 349E for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_349FDesc="I/O LPC Controller - 349F for Intel(R) On-Package Platform Controller Hub"
+PCI\VEN_8086&DEV_34A0Desc="Intel(R) P2SB - 34A0"
+PCI\VEN_8086&DEV_34A1Desc="Intel(R) PMC - 34A1"
+PCI\VEN_8086&DEV_34A3Desc="Intel(R) SMBus - 34A3"
+PCI\VEN_8086&DEV_34A4Desc="Intel(R) SPI (flash) Controller - 34A4"
+PCI\VEN_8086&DEV_34B0Desc="Intel(R) PCI Express Root Port #9 - 34B0"
+PCI\VEN_8086&DEV_34B1Desc="Intel(R) PCI Express Root Port #10 - 34B1"
+PCI\VEN_8086&DEV_34B2Desc="Intel(R) PCI Express Root Port #11 - 34B2"
+PCI\VEN_8086&DEV_34B3Desc="Intel(R) PCI Express Root Port #12 - 34B3"
+PCI\VEN_8086&DEV_34B4Desc="Intel(R) PCI Express Root Port #13 - 34B4"
+PCI\VEN_8086&DEV_34B5Desc="Intel(R) PCI Express Root Port #14 - 34B5"
+PCI\VEN_8086&DEV_34B6Desc="Intel(R) PCI Express Root Port #15 - 34B6"
+PCI\VEN_8086&DEV_34B7Desc="Intel(R) PCI Express Root Port #16 - 34B7"
+PCI\VEN_8086&DEV_34B8Desc="Intel(R) PCI Express Root Port #1 - 34B8"
+PCI\VEN_8086&DEV_34B9Desc="Intel(R) PCI Express Root Port #2 - 34B9"
+PCI\VEN_8086&DEV_34BADesc="Intel(R) PCI Express Root Port #3 - 34BA"
+PCI\VEN_8086&DEV_34BBDesc="Intel(R) PCI Express Root Port #4 - 34BB"
+PCI\VEN_8086&DEV_34BCDesc="Intel(R) PCI Express Root Port #5 - 34BC"
+PCI\VEN_8086&DEV_34BDDesc="Intel(R) PCI Express Root Port #6 - 34BD"
+PCI\VEN_8086&DEV_34BEDesc="Intel(R) PCI Express Root Port #7 - 34BE"
+PCI\VEN_8086&DEV_34BFDesc="Intel(R) PCI Express Root Port #8 - 34BF"
+
+
+
+
+; Copyright (c) 2003-2019 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

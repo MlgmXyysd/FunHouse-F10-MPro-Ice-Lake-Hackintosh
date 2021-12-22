@@ -1,0 +1,153 @@
+;-------------------------------------------------------------------------------
+; INTEL CONFIDENTIAL
+;
+; Copyright (c) 2013-2020 Intel Corporation All Rights Reserved 
+;
+; The source code contained or described herein and all documents related to 
+; the source code ("Material") are owned by Intel Corporation or its suppliers 
+; or licensors. Title to the Material remains with Intel Corporation or its 
+; suppliers and licensors. The Material contains trade secrets and proprietary 
+; and confidential information of Intel or its suppliers and licensors. The 
+; Material is protected by worldwide copyright and trade secret laws and treaty 
+; provisions. No part of the Material may be used, copied, reproduced, 
+; modified, published, uploaded, posted, transmitted, distributed, or 
+; disclosed in any way without Intel's prior express written permission.
+;
+; No license under any patent, copyright, trade secret or other intellectual 
+; property right is granted to or conferred upon you by disclosure or delivery 
+; of the Materials, either expressly, by implication, inducement, estoppel or 
+; otherwise. Any license under such intellectual property rights must be 
+; expressed and approved by Intel in writing.
+;------------------------------------------------------------------------------
+
+[Version] 
+Signature = "$WINDOWS NT$" 
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL% 
+CatalogFile=dptf_acpi.cat
+DriverVer = 01/21/2020,8.7.10201.13396
+PnpLockDown=1
+
+;----------------------------------------------------------------------
+; File Information
+;----------------------------------------------------------------------
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles.amd64]
+dptf_acpi.sys=1,,
+
+[DestinationDirs]
+DefaultDestDir=12
+CopyDriver = 13
+
+;-------------------------------------------------------------------------------
+; Manufacturer and Models Section
+;-------------------------------------------------------------------------------
+
+[Manufacturer]
+%INTEL% = INTEL,NTamd64.10.0...17134
+
+[INTEL.NTamd64.10.0...17134]
+%IdttManager.DeviceDesc%      = DptfAcpi,ACPI\INT3400
+%IdttProc.DeviceDesc%         = DptfAcpi,ACPI\INT3401
+%IdttMemory.DeviceDesc%       = DptfAcpi,ACPI\INT3402
+%IdttGeneric.DeviceDesc%      = DptfAcpi,ACPI\INT3403
+%IdttFan.DeviceDesc%          = DptfAcpi,ACPI\INT3404
+%IdttPch.DeviceDesc%          = DptfAcpi,ACPI\INT3405
+%IdttDisplay.DeviceDesc%      = DptfAcpi,ACPI\INT3406
+%IdttPower.DeviceDesc%        = DptfAcpi,ACPI\INT3407
+%IdttWireless.DeviceDesc%     = DptfAcpi,ACPI\INT3408
+%IdttAmbient.DeviceDesc%      = DptfAcpi,ACPI\INT3409
+%IdttStorage.DeviceDesc%      = DptfAcpi,ACPI\INT340A
+%IdttCamera.DeviceDesc%       = DptfAcpi,ACPI\INT340B
+%IdttThunderbolt.DeviceDesc%  = DptfAcpi,ACPI\INT340C
+%IdttDgfx.DeviceDesc%         = DptfAcpi,ACPI\INT340D
+%IdttPchSpt.DeviceDesc%       = DptfAcpi,ACPI\INT343D
+%IdttMultChipPkg.DeviceDesc%  = DptfAcpi,ACPI\INT3530
+%IdttBattery.DeviceDesc%      = DptfAcpi,ACPI\INT3532
+%IdttManager.DeviceDesc%      = DptfAcpi,ACPI\INTC1040
+%IdttGeneric.DeviceDesc%      = DptfAcpi,ACPI\INTC1043
+%IdttFan.DeviceDesc%          = DptfAcpi,ACPI\INTC1044
+%IdttPch.DeviceDesc%          = DptfAcpi,ACPI\INTC1045
+%IdttPower.DeviceDesc%        = DptfAcpi,ACPI\INTC1047
+%IdttBattery.DeviceDesc%      = DptfAcpi,ACPI\INTC1050
+
+
+;------------------------------------------------------------------------------
+; DptfAcpi
+;------------------------------------------------------------------------------
+
+[DptfAcpi.NTamd64]
+CopyFiles=CopyDriver
+
+[CopyDriver]
+dptf_acpi.sys,,,2
+
+[DptfAcpi.NTamd64.Services]
+AddService = dptf_acpi,2,DptfAcpiDriverService, DptfAcpiEtw_Install, System, dptf_acpi
+
+[DptfAcpiDriverService]
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\dptf_acpi.sys
+LoadOrderGroup = Base
+
+[DptfAcpi.NTamd64.Wdf]
+KmdfService = dptf_acpi, KMDFVersion
+
+[KMDFVersion]
+KmdfLibraryVersion = 1.11
+
+;----------------------------------------------------------------------
+; ETW Support compontents
+;----------------------------------------------------------------------
+
+[DptfAcpiEtw_Install]
+AddReg=DptfAcpiEtw_AddReg
+
+[DptfAcpiEtw_AddReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{5885720D-F086-4614-A17C-4770C2461AF2}",,%FLG_ADDREG_TYPE_SZ%,"DptfAcpiEtwProvider"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{5885720D-F086-4614-A17C-4770C2461AF2}","ResourceFileName",%REG_EXPAND_SZ%,"%13%\dptf_acpi.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{5885720D-F086-4614-A17C-4770C2461AF2}","MessageFileName",%REG_EXPAND_SZ%,"%13%\dptf_acpi.sys"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{5885720D-F086-4614-A17C-4770C2461AF2}","Enabled",%FLG_ADDREG_TYPE_DWORD%,1
+
+;----------------------------------------------------------------------
+; Strings and Constants
+;----------------------------------------------------------------------
+
+[Strings]
+SERVICE_DEMAND_START  = 3
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_ERROR_NORMAL  = 1
+
+FLG_ADDREG_TYPE_SZ = 0x00000000
+REG_EXPAND_SZ = 0x00020000
+FLG_ADDREG_TYPE_DWORD = 0x00010001
+
+INTEL = "Intel"
+DiskName = "Intel(R) Dynamic Tuning"
+
+IdttManager.DeviceDesc      = "Intel(R) Dynamic Tuning Manager"
+IdttProc.DeviceDesc         = "Intel(R) Dynamic Tuning Processor Participant"
+IdttMemory.DeviceDesc       = "Intel(R) Dynamic Tuning Memory Participant"
+IdttGeneric.DeviceDesc      = "Intel(R) Dynamic Tuning Generic Participant"
+IdttFan.DeviceDesc          = "Intel(R) Dynamic Tuning Fan Participant"
+IdttPch.DeviceDesc          = "Intel(R) Dynamic Tuning PCH ACPI Participant"
+IdttDisplay.DeviceDesc      = "Intel(R) Dynamic Tuning Display Participant"
+IdttPower.DeviceDesc        = "Intel(R) Dynamic Tuning Power Participant"
+IdttWireless.DeviceDesc     = "Intel(R) Dynamic Tuning Wireless Participant"
+IdttAmbient.DeviceDesc      = "Intel(R) Dynamic Tuning Ambient Temperature Sensor Participant"
+IdttStorage.DeviceDesc      = "Intel(R) Dynamic Tuning Storage Participant"
+IdttCamera.DeviceDesc       = "Intel(R) Dynamic Tuning Camera Participant"
+IdttThunderbolt.DeviceDesc  = "Intel(R) Dynamic Tuning Thunderbolt Participant"
+IdttDgfx.DeviceDesc         = "Intel(R) Dynamic Tuning Multi-Chip Discrete Graphics(DGFX) Participant"
+IdttPchSpt.DeviceDesc       = "Intel(R) Dynamic Tuning PCH SPT ACPI Participant"
+IdttMultChipPkg.DeviceDesc  = "Intel(R) Dynamic Tuning Multi-Chip Package Participant"
+IdttBattery.DeviceDesc      = "Intel(R) Dynamic Tuning Battery Participant"
+
+
+
