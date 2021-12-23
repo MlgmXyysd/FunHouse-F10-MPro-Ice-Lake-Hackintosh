@@ -11,7 +11,7 @@
 	<key>#WARNING - 4</key>
 	<string>Enable nic kexts according to your hardware and OS manually.</string>
 	<key>#WARNING - 5</key>
-	<string>Graphics Model for i7-1065G7 is Intel Iris Plus Graphics G7, not Intel UHD Graphics G1</string>
+	<string>Graphics Model is for i7-1065G7, can be manually changed to other.</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -391,7 +391,7 @@
 				<key>igfxfw</key>
 				<integer>2</integer>
 				<key>model</key>
-				<string>Intel UHD Graphics G1</string>
+				<string>Intel Iris Plus Graphics G7</string>
 				<key>rps-control</key>
 				<integer>1</integer>
 			</dict>

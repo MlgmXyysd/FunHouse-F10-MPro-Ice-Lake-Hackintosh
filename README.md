@@ -9,13 +9,13 @@
 
 | Specifications      | Details |
 | ------------------: | :------ |
-| Computer Model | FunHouse F10 MPro<br/>FunHouse F10 MPro+ |
+| Computer Model | FunHouse F10 MPro<br/>FunHouse F10 Pro<br/>FunHouse F10 MPro+ |
 | Processor | Ice Lake `FCBGA1526` |
-| CPU | Intel Core i3-1005G1 Mobile<br/>Intel Core i7-1065G7 Mobile |
-| Integrated Graphics | Intel UHD Graphics G1<br/>Intel Iris Plus Graphics G7 |
+| CPU | Intel Core i3-1005G1 Mobile<br/>Intel Core i5-1035G4 Mobile<br/>Intel Core i7-1065G7 Mobile |
+| Integrated Graphics | Intel UHD Graphics G1<br/>Intel Iris Plus Graphics G4<br/>Intel Iris Plus Graphics G7 |
 | Memory | 8 GB / 16 GB `LPDDR4X @ 3200Mhz` |
-| Storage | 256 GB `NGFF` `SATA` |
-| Screen | BOE NE135FBM-N41, 13.5 in, 2256 x 1504 pixels, 3:2 ratio, 60 Hz `IPS-LCD` |
+| Storage | 256 GB / 512 GB `NGFF` `2280` `SATA` |
+| Screen | BOE NE135FBM-N41, 13.5 in, 2256 x 1504 pixels, 3:2 ratio, 60 Hz `IPS-LCD`<br/>15.6 in, 1920 x 1080 pixels, 16:9 ratio, 60 Hz `IPS-LCD` (Pro) |
 | Audio | Realtek USB Audio |
 | Wireless | Realtek RTL8821CE<br/>Wi-Fi `5` `IEEE 802.11 a/g/b/n/ac` `2.4 GHz` `5 GHz` `433 Mbps`<br/>Bluetooth `4.2` |
 | Ethernet | No Ethernet |
@@ -23,8 +23,8 @@
 | Charging | 19 V ⎓ 3 A `DC` `PD` |
 | Camera | 2 MP, 720 x 480 pixels |
 | Dimensions | 297.3 x 224.6 x 17.5 mm (11.70 x 8.84 x 0.69 in), 1.4 kg |
-| Connectors | 1 x USB Type-C 3.2 Gen2x1<br/>2 x USB Type-A 3.2 Gen1<br/>1 x DC Charger<br/>1 x MicroSD Slot<br/>1 x TRS 3.5 mm<br/>1 x Mini-HDMI |
-| Input | 78 Keys Built-in Keyboard (Fn)<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
+| Connectors | 1 x USB Type-C 3.2 Gen2x1<br/>2 x USB Type-A 3.2 Gen1<br/>1 x DC Charger<br/>1 x MicroSD Slot<br/>1 x TRS 3.5 mm<br/>1 x Mini-HDMI<br/>1 x M.2 2242 Slot (Pro only) |
+| Input | 78 / 100 Keys Built-in QWERTY Keyboard (Fn)<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
 
 ## EFI Specifications
 
@@ -41,12 +41,13 @@
 | SMBIOS | `MacBookPro16,2` | MacBook Pro 13" 2020 |
 | Chassis | `Mac-5F9802EFE386AA28` | |
 
-## Supported Devices
+## Supported Models
 
 | Model | Processor | Graphics | Type | Status | Remarks |
 | ----: | :-------: | :------: | :--: | :----: | :------ |
 | FunHouse F10 MPro | Intel Core i3-10110U Mobile | Intel UHD Graphics 630 | Comet Lake | ❌ | Not yet supported |
 | FunHouse F10 MPro | Intel Core i3-1005G1 Mobile | Intel UHD Graphics G1 | Ice Lake | ✅ | |
+| FunHouse F10 Pro | Intel Core i5-1035G4 Mobile | Intel UHD Graphics G4 | Ice Lake | ⚠️ | Need more test |
 | FunHouse F10 MPro+ | Intel Core i7-1065G7 Mobile | Intel Iris Plus Graphics G7 | Ice Lake | ⚠️ | Need more test |
 
 ## Working
