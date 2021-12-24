@@ -15,13 +15,13 @@
 | Integrated Graphics | Intel UHD Graphics G1<br/>Intel Iris Plus Graphics G4<br/>Intel Iris Plus Graphics G7 |
 | Memory | 8 GB / 16 GB `LPDDR4X @ 3200Mhz` |
 | Storage | 256 GB / 512 GB `NGFF` `2280` `SATA` |
-| Screen | BOE NE135FBM-N41, 13.5 in, 2256 x 1504 pixels, 3:2 ratio, 60 Hz `IPS-LCD`<br/>15.6 in, 1920 x 1080 pixels, 16:9 ratio, 60 Hz `IPS-LCD` (Pro) |
+| Screen | BOE NE135FBM-N41, 13.5 in, 2256 x 1504 pixels, 3:2 ratio, 60 Hz `IPS-LCD` (MPro/MPro+)<br/>15.6 in, 1920 x 1080 pixels, 16:9 ratio, 60 Hz `IPS-LCD` (Pro) |
 | Audio | Realtek USB Audio |
 | Wireless | Realtek RTL8821CE<br/>Wi-Fi `5` `IEEE 802.11 a/g/b/n/ac` `2.4 GHz` `5 GHz` `433 Mbps`<br/>Bluetooth `4.2` |
 | Ethernet | No Ethernet |
 | Battery | 35 Wh (typ) `Li-Po` |
 | Charging | 19 V ⎓ 3 A `DC` `PD` |
-| Camera | 2 MP, 720 x 480 pixels |
+| Camera | 2 MP, 720 x 480 pixels, Front |
 | Dimensions | 297.3 x 224.6 x 17.5 mm (11.70 x 8.84 x 0.69 in), 1.4 kg |
 | Connectors | 1 x USB Type-C 3.2 Gen2x1<br/>2 x USB Type-A 3.2 Gen1<br/>1 x DC Charger<br/>1 x MicroSD Slot<br/>1 x TRS 3.5 mm<br/>1 x Mini-HDMI<br/>1 x M.2 2242 Slot (Pro only) |
 | Input | 78 / 100 Keys Built-in QWERTY Keyboard (Fn)<br/>141 x 96 mm Built-in TouchPad<br/>Built-in Fingerprint Sensor |
@@ -47,7 +47,7 @@
 | ----: | :-------: | :------: | :--: | :----: | :------ |
 | FunHouse F10 MPro | Intel Core i3-10110U Mobile | Intel UHD Graphics 630 | Comet Lake | ❌ | Not yet supported |
 | FunHouse F10 MPro | Intel Core i3-1005G1 Mobile | Intel UHD Graphics G1 | Ice Lake | ✅ | |
-| FunHouse F10 Pro | Intel Core i5-1035G4 Mobile | Intel UHD Graphics G4 | Ice Lake | ⚠️ | Need more test |
+| FunHouse F10 Pro | Intel Core i5-1035G4 Mobile | Intel Iris Plus Graphics G4 | Ice Lake | ⚠️ | Need more test |
 | FunHouse F10 MPro+ | Intel Core i7-1065G7 Mobile | Intel Iris Plus Graphics G7 | Ice Lake | ⚠️ | Need more test |
 
 ## Working
@@ -57,7 +57,7 @@
 | BootLoader | ✅ | `Boot`✅ | `OpenCore` | OpenCore 0.7.6 |
 | NVRAM | ✅ | | `SSDT-PMC` | |
 | Integrated Graphics | ✅ | `Display`✅<br/>`Accleration QE/CI`✅ | `WhateverGreen.kext` | |
-| HiDPI | ✅ | | | [Script](https://github.com/xzhih/one-key-hidpi) required<br/>If screen flashes, close the laptop cover and reopen it |
+| HiDPI | ✅ | | | [Enable HiDPI](#enable-hidpi) |
 | Brightness Adjustments | ✅ | | `SSDT-PNLF-CFL`<br/>`WhateverGreen.kext`<br/>`AppleBacklightSmoother.kext` | |
 | Sleep | ✅ | `S3`✅ | `HibernationFixup.kext` | |
 | Hibernation | ✅ | `Mode 3`✅<br/>`Mode 25`✅ | `HibernationFixup.kext` | |
@@ -75,19 +75,21 @@
 | Audio over Bluetooth | ✅ | `Input`✅<br/>`Output`✅ | Bluetooth | |
 | MicroSD Slot | ✅ | `Hotplug`✅ | `USBMap.kext` | |
 | USB Type-A Ports | ✅ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`Hub`✅ | `USBMap.kext` | |
-| USB Type-C Port | ⚠️ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`PD Charging`✅<br/>`Hub`✅<br/>`Hotplug`✅<br/>`Display`❌<br/>`Thunderbolt`❌ | `USBMap.kext` | Hotplug fully supported<br/>GT1 iGPU outputs via Thunderbolt, but Thunderbolt Retimer lacks |
+| USB Type-C Port | ✅ | `USB 3.2`✅<br/>`USB 2.0`✅<br/>`PD Charging`✅<br/>`Hub`✅<br/>`Hotplug`✅ | `USBMap.kext` | Hotplug fully supported |
 | Ethernet | ✅ | `Ethernet Docking`✅<br/>`Ethernet Spoofing`✅ | `SSDT-ETHERNET`<br/>`NullEthernet.kext` | Disabled by default, you can manually enable them to spoof system if you need to |
 | WiFi (Intel) | ⚠️ | `WPA3`⚠️ | `AirportItlwm-*.kext` | WPA3 will have a very slow speed |
 | WiFi (Broadcom) | ✅ | `WPA3`✅ | `AirportBrcmFixup.kext`<br/>`AirportBrcm*_Injector.kext` | |
 | Bluetooth (Intel) | ⚠️ | `Bluetooth`✅<br/>`AirDrop(Sending)`❌<br/>`AirDrop(Receiving)`❌ | `BlueToolFixup.kext`<br/>`IntelBluetoothFirmware.kext`<br/>`IntelBluetoothInjector.kext` | |
-| Bluetooth (Broadcom) | ⚠️ | `Bluetooth`✅<br/>`AirDrop(Sending)`⚠️<br/>`AirDrop(Receiving)`✅ | `BlueToolFixup.kext`<br/>`BrcmPatchRAM3.kext`<br/>`BrcmFirmwareData.kext`<br/>`BrcmBluetoothInjector.kext` | AirDrop(Sending) not working properly on Monterey |
+| Bluetooth (Broadcom) | ✅ | `Bluetooth`✅<br/>`AirDrop(Sending)`⚠️<br/>`AirDrop(Receiving)`✅ | `BlueToolFixup.kext`<br/>`BrcmPatchRAM3.kext`<br/>`BrcmFirmwareData.kext`<br/>`BrcmBluetoothInjector.kext` | AirDrop(Sending) not working properly on Monterey |
 
 ## Not working
 
 | Feature | Status | Sub-objects | Dependency | Remarks |
 | ------: | :----: | :---------- | :--------: | :------ |
 | Fingerprint Sensor | ❌ | | `NoTouchID.kext` | TouchID is not supported in Hackintosh |
-| Mini-HDMI Port | ❌ | `Video`❌<br/>`Audio`❌ | | `[IGFB][LOG][HOT_PLUG] Returning as HPD is low` |
+| Mini-HDMI Port | ❌ | `Video`❌<br/>`Audio`❌ | | macOS natively supports DisplayPort on Ice Lake instead of HDMI<br/>`[IGFB][LOG][HOT_PLUG] Returning as HPD is low` |
+| Thunderbolt | ❌ | | Hardware | Thunderbolt Retimer lacks |
+| Type-C Display | ❌ | | Thunderbolt | Ice Lake iGPU outputs via Thunderbolt |
 | Realtek RTL8821CE | ❌ | `Bluetooth`❌<br/>`Wi-Fi`❌ | | Realtek wireless nic is not supported in Hackintosh<br/>Suggest to replace it with Broadcom or Intel based:<br/>`BCM943602`/`BCM94350ZAE`/`BCM94360Z3`/`BCM94360Z4`<br/>`AX200`/`AX201`/`AX210`/`AX211`/`AX411` |
 
 ## Firmware
@@ -95,6 +97,16 @@
 - [BIOS Customization - BIOS Configuration](BIOS#recommended-configuration)
 - [BIOS Customization - Splash Logo Customization](BIOS#splash-logo-customization)
 - [BIOS Customization - LCD DC Firmware](BIOS#lcd-firmware)
+
+## Enable HiDPI
+- Require [this script](https://github.com/xzhih/one-key-hidpi) to enable HiDPI, run following operations in Terminal:
+1. `bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"`
+2. `2` (<u>Enable HIDPI (with EDID)</u>)
+3. `3` (<u>MacBook Pro</u>)
+4. `6` (<u>Manual input resolution</u>)
+5. `1275x850 1440x960 1500x1000 1920x1280 2256x1504`
+6. `sudo reboot`
+- If screen flashes after HiDPI enabled, close the laptop cover and reopen it.
 
 ## Tested on
 - Monterey 12.1 `21C52`
