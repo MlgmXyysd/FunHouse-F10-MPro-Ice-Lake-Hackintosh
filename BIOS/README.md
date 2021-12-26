@@ -28,6 +28,9 @@
 │  └─> PCH-IO Configuration
 │     └─> Security Configuration
 │        └─> RTC Memory Lock -> `Disabled`
+├─> Security
+│  └─> Secure Boot
+│     └─> Secure Boot -> `Disabled`
 └─> Boot
    └─> Fast Boot -> `Disabled`
 ```
